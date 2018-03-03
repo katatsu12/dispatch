@@ -1,6 +1,9 @@
-<h3><%= @z['title'] %></h3>
-<h4><%= @z["author"] %></h3>
-<h4><%= @z["description"] %></h3>
-<h4><%= @z["publishedAt"] %></h3>
-<a href="<%= @z["url"] %>">
-<img src="<%= @z['urlToImage'] %>" alt="Mountain View" height="350" width="640">
+<% @b[2][1].each do |i| %>
+  <h3><%= i["title"] %></h3>
+  <h4><%= i["author"] %></h3>
+  <h4><%= i["description"] %></h3>
+  <h4><%= i["publishedAt"] %></h3>
+  <a href="<%= i["url"] %>">
+  <img src="<%= i['urlToImage'] %>" height="350" width="640">
+  </a>
+<% end %>

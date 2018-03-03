@@ -9,10 +9,10 @@ class NewsController < ApplicationController
     req = open(url)
     @response_body = req.read
     a = JSON.parse(@response_body)
-    b = a.to_a
-    c = b[2][1][0].to_json
-    @z = JSON.parse(c)
-    puts @z
+    @b = a.to_a
+    # c = @b[2][1][0].to_json
+    # @z = JSON.parse(c)
+
     # render json: @response_body.status
     # render json: @response_body
     # render plain: @z['title']
