@@ -52,7 +52,6 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
-    bootstrap-toggle-rails (2.2.1.0)
     builder (3.2.3)
     byebug (10.0.0)
     capybara (2.18.0)
@@ -203,6 +202,8 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
+    validates_email_format_of (1.6.3)
+      i18n
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -227,7 +228,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap (~> 4.0.0)
-  bootstrap-toggle-rails
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
@@ -245,6 +245,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
+  validates_email_format_of
   web-console (>= 3.3.0)
 
 BUNDLED WITH

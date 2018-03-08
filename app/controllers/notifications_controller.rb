@@ -4,7 +4,6 @@ class NotificationsController < ApplicationController
   def index
   end
 
-  # GET /notifications/new
   def new
     @notification = Notification.new
   end
@@ -13,8 +12,6 @@ class NotificationsController < ApplicationController
     redirect_to root_url
   end
 
-  # POST /notifications
-  # POST /notifications.json
   def create
     @notification = Notification.new(notification_params)
 
@@ -23,7 +20,7 @@ class NotificationsController < ApplicationController
         format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
         format.json { render :index, status: :created, location: @notification }
       else
-        format.html { render :new }
+        format.html { redirect_to @notification, notice: 'Your email is not looking good' }
         format.json { render json: @notification.errors, status: :unprocessable_entity }
       end
     end
