@@ -5,7 +5,7 @@ class NotificationsController < ApplicationController
   end
 
   def new
-    @notification = Notification.new
+    @notification = current_user.notifications.build
   end
 
   def show
@@ -13,7 +13,7 @@ class NotificationsController < ApplicationController
   end
 
   def create
-    @notification = Notification.new(notification_params)
+    @notification = current_user.notifications.build(notification_params)
 
     respond_to do |format|
       if @notification.save
