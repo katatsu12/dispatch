@@ -2,7 +2,6 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
     if Notification.where(user_id: current_user).count > 0
       @notification = Notification.where(user_id: current_user).last
       @mail = "your current emails is #{@notification.email}"
@@ -22,9 +21,9 @@ class NotificationsController < ApplicationController
   def edit
   end
   def update
-    @notification = Notification.find(params[:id])
-    @notification.update(email: :email)
-    # redirect_to @notification
+    @notification = Notification.where(user_id: current_user).last
+    @notification.update!(email:  params[:notification][:email])
+    redirect_to root_url 
   end
 
   def create
