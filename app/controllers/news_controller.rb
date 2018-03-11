@@ -25,7 +25,7 @@ class NewsController < ApplicationController
     open_url(url)
   end
 
-  def techcrunch #take top 20 news from techcrunch
+  def tc #take top 20 news from techcrunch
     url = 'https://newsapi.org/v2/top-headlines?'\
           'sources=techcrunch&'\
           'apiKey=6dd59350f84a476490213e76baf5d95b'
@@ -47,21 +47,21 @@ class NewsController < ApplicationController
           'apiKey=6dd59350f84a476490213e76baf5d95b'
     open_url(url)
   end
-
-  def ru(param) #ru news with params
-    url = 'https://newsapi.org/v2/top-headlines?'\
-          'country=ru&'\
-          "category=#{param}&"\
-          'apiKey=6dd59350f84a476490213e76baf5d95b'
-    open_url(url)
-  end
-
-  def uk(param) #uk news with params
-    url = 'https://newsapi.org/v2/top-headlines?'\
-          'country=uk&'\
-          "category=#{param}&"\
-          'apiKey=6dd59350f84a476490213e76baf5d95b'
-    open_url(url)
-  end
+  #
+  # def ru(param) #ru news with params
+  #   url = 'https://newsapi.org/v2/top-headlines?'\
+  #         'country=ru&'\
+  #         "category=#{param}&"\
+  #         'apiKey=6dd59350f84a476490213e76baf5d95b'
+  #   open_url(url)
+  # end
+  #
+  # def uk(param) #uk news with params
+  #   url = 'https://newsapi.org/v2/top-headlines?'\
+  #         'country=uk&'\
+  #         "category=#{param}&"\
+  #         'apiKey=6dd59350f84a476490213e76baf5d95b'
+  #   open_url(url)
+  # end
 
 end
