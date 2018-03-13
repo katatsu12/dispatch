@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1>Notifications</h1>
 <h3><%= @mail %></h3>
+
 <div>
   <%= render 'form', notification: @notification %>
 </div>
@@ -8,7 +9,7 @@
 <% if user_signed_in? %>
   <ul>
     <li><%= link_to 'Account', edit_user_registration_path %></li>
-    <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+    <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
   </ul>
 <% else %>
   <ul>
@@ -18,24 +19,4 @@
 <% end %>
 <br>
 
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="">
-  <label class="form-check-label" for="defaultCheck1">
-    First News
-  </label>
-
-</div>
-
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="">
-  <label class="form-check-label" for="defaultCheck1">
-    Second News
-  </label>
-</div>
-
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="">
-  <label class="form-check-label" for="defaultCheck1">
-    Third News
-  </label>
-</div>
+<%= link_to('temporary link to news chooser' , root_url) %>

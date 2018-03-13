@@ -1,4 +1,5 @@
 <h3><%= @mail %></h3>
+<%= link_to('Change email here' , notifications_path) %>
 <% @news_a.each do |i|  %>
   <%= button_to "#{i}" , action: "#{i}" %>
   <%  if @a[@index] == '0' %>

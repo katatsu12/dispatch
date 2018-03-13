@@ -1,4 +1,5 @@
 class NewsChooserController < ApplicationController
+  before_action :authenticate_user!
 
 
   def index
@@ -109,8 +110,13 @@ private
     @news_chooser = NewsChooser.where(user_id: current_user).last
     @a = @news_chooser.news_types.each_char.to_a
     @index = 0
-    @notification = Notification.where(user_id: current_user).last
-    @mail = "your current emails is #{@notification.email}"
+    if Notification.where(user_id: current_user).count == 0
+      @mail = "currently you dont have emaill. Please chnge it below"
+    else
+      @notification = Notification.where(user_id: current_user).last
+      @mail = "your current emails is #{@notification.email}"
+    end
+
     @news_a = ['bbc', 'tc' , 'us_business', 'us_entertainment', 'us_health' \
               , 'us_science', 'us_sports', 'us_technology', 'ua_business' \
               , 'ua_entertainment', 'ua_health', 'ua_science' , 'ua_sports' , 'ua_technology']

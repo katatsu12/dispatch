@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'news_chooser#index'
 
-  get '/news_chooser', to: 'news_chooser#index'
   #news_choser(sites)----------------------------------------------------------
+  get '/news_chooser', to: 'news_chooser#index'
   post '/bbc', to: 'news_chooser#bbc'
   post '/tc', to: 'news_chooser#tc'
   #news_choser(countries)------------------------------------------------------

@@ -15,15 +15,16 @@ class NotificationsController < ApplicationController
   end
 
   def show
-    redirect_to root_url
+    redirect_to notifications_path
   end
 
   def edit
   end
+  
   def update
     @notification = Notification.where(user_id: current_user).last
     @notification.update!(email:  params[:notification][:email])
-    redirect_to root_url 
+    redirect_to notifications_path
   end
 
   def create
