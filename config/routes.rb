@@ -4,8 +4,24 @@ Rails.application.routes.draw do
   resources :notifications
   devise_for :users
   root to: 'news_chooser#index'
+
   get '/news_chooser', to: 'news_chooser#index'
-  get '/bbc', to: 'news_chooser#bbc'
-  get '/tc', to: 'news_chooser#tc'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  #news_choser(sites)----------------------------------------------------------
+  post '/bbc', to: 'news_chooser#bbc'
+  post '/tc', to: 'news_chooser#tc'
+  #news_choser(countries)------------------------------------------------------
+  post '/us_business', to: 'news_chooser#us_business'
+  post '/us_entertainment' , to: 'news_chooser#us_entertainment'
+  post '/us_health' , to: 'news_chooser#us_health'
+  post '/us_science' , to: 'news_chooser#us_science'
+  post '/us_sports' , to: 'news_chooser#us_sports'
+  post '/us_technology' , to: 'news_chooser#us_technology'
+
+  post '/ua_business' , to: 'news_chooser#ua_business'
+  post '/ua_entertainment' , to: 'news_chooser#ua_entertainment'
+  post '/ua_health' , to: 'news_chooser#ua_health'
+  post '/ua_science' , to: 'news_chooser#ua_science'
+  post '/ua_sports' , to: 'news_chooser#ua_sports'
+  post '/ua_technology' , to: 'news_chooser#ua_technology'
+
 end

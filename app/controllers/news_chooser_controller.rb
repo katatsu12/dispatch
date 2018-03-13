@@ -4,14 +4,11 @@ class NewsChooserController < ApplicationController
   def index
     if NewsChooser.where(user_id: current_user).count == 0
       NewsChooser.create(:news_types => '0'*14, :user_id => current_user.id).save
-      @news_chooser = NewsChooser.where(user_id: current_user).last
-      @notification = Notification.where(user_id: current_user).last
-      @mail = "your current emails is #{@notification.email}"
+      index_info
     else
-      @news_chooser = NewsChooser.where(user_id: current_user).last
-      @notification = Notification.where(user_id: current_user).last
-      @mail = "your current emails is #{@notification.email}"
+      index_info
     end
+
   end
 
   #sites-----------------------------------------------------------------------
@@ -106,5 +103,16 @@ private
     b = a.join
     @news_chooser.update!(:news_types =>  b)
     redirect_to root_url
+  end
+
+  def index_info
+    @news_chooser = NewsChooser.where(user_id: current_user).last
+    @a = @news_chooser.news_types.each_char.to_a
+    @index = 0
+    @notification = Notification.where(user_id: current_user).last
+    @mail = "your current emails is #{@notification.email}"
+    @news_a = ['bbc', 'tc' , 'us_business', 'us_entertainment', 'us_health' \
+              , 'us_science', 'us_sports', 'us_technology', 'ua_business' \
+              , 'ua_entertainment', 'ua_health', 'ua_science' , 'ua_sports' , 'ua_technology']
   end
 end
