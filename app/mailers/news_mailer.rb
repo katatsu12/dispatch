@@ -10,6 +10,7 @@ class NewsMailer < ApplicationMailer
     open_url(url)
 
     mail to: 'example@gmail.com'
+    #testing send
   end
 
 private
