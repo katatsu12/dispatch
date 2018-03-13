@@ -20,7 +20,7 @@ class NotificationsController < ApplicationController
 
   def edit
   end
-  
+
   def update
     @notification = Notification.where(user_id: current_user).last
     @notification.update!(email:  params[:notification][:email])
