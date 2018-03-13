@@ -1,8 +1,7 @@
 class NewsMailer < ApplicationMailer
 
-  def bbc_news
-    #@user = users
-    mail to:      'katatsu12@gmail.com',
+  def news_send
+    mail to:      'example@gmail.com',
          subject: 'BBC News'
   end
 end
