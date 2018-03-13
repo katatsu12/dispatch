@@ -2,9 +2,9 @@
 <% @news_a.each do |i|  %>
   <%= button_to "#{i}" , action: "#{i}" %>
   <%  if @a[@index] == '0' %>
-    <h5>You don't subscribed to this news</h5>
+    <h4 style="color:red;" >You don't subscribed to this news</h4>
   <% else %>
-    <h5>You subscribed to this news</h5>
+    <h4 style="color:green;">You subscribed to this news</h4>
   <% end %>
   <% @index += 1 %>
 <% end %>
