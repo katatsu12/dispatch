@@ -19,7 +19,7 @@ class NotificationsController < ApplicationController
       if @notification.save
         format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
         format.json { render :index, status: :created, location: @notification }
-        NewsMailer.bbc_news.deliver
+        NewsMailer.index.deliver
       else
         format.html { redirect_to @notification, notice: 'Your email is not looking good' }
         format.json { render json: @notification.errors, status: :unprocessable_entity }
