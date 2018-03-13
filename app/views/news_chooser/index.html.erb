@@ -1,0 +1,11 @@
+<h3><%= @mail %></h3>
+<%= link_to('Change email here' , notifications_path) %>
+<% @news_a.each do |i|  %>
+  <%= button_to "#{i}" , action: "#{i}" %>
+  <%  if @a[@index] == '0' %>
+    <h4 style="color:red;" >You don't subscribed to this news</h4>
+  <% else %>
+    <h4 style="color:green;">You subscribed to this news</h4>
+  <% end %>
+  <% @index += 1 %>
+<% end %>

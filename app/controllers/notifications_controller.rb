@@ -2,18 +2,33 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    if Notification.where(user_id: current_user).count > 0
+      @notification = Notification.where(user_id: current_user).last
+      @mail = "your current emails is #{@notification.email}"
+    else
+      @mail = "Please write down your email below"
+    end
   end
 
   def new
-    @notification = Notification.new
+    @notification = current_user.notifications.build
   end
 
   def show
-    redirect_to root_url
+    redirect_to notifications_path
+  end
+
+  def edit
+  end
+
+  def update
+    @notification = Notification.where(user_id: current_user).last
+    @notification.update!(email:  params[:notification][:email])
+    redirect_to notifications_path
   end
 
   def create
-    @notification = Notification.new(notification_params)
+    @notification = current_user.notifications.build(notification_params)
 
     respond_to do |format|
       if @notification.save

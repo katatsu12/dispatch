@@ -15,6 +15,7 @@ gem 'devise', '~> 4.4', '>= 4.4.1'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'validates_email_format_of'
+gem 'hirb'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
