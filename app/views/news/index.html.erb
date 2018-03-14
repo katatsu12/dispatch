@@ -1,9 +1,28 @@
-<% @b[2][1].each do |i| %>
-  <h3><%= i["title"] %></h3>
-  <h4><%= i["author"] %></h3>
-  <h4><%= i["description"] %></h3>
-  <h4><%= i["publishedAt"] %></h3>
-  <a href="<%= i["url"] %>">
-  <img src="<%= i['urlToImage'] %>" height="350" width="640">
-  </a>
+
+<% @a.each do |i| %>
+  <% if i == "1" %>
+    <% @arr[@index].call %>
+    <% @index += 1 %>
+    <% @inc = 0 %>
+
+    <% $b[2][1].each do |i| %>
+      <h3><%= i["title"] %></h3>
+      <h4><%= i["author"] %></h3>
+      <h4><%= i["description"] %></h3>
+      <h4><%= i["publishedAt"] %></h3>
+      <a href="<%= i["url"] %>">
+      <img src="<%= i['urlToImage'] %>" height="350" width="640">
+      </a>
+
+      <% @inc += 1 %>
+      <% if @inc == 3%>
+        <% break %>
+      <% end %>
+    <% end %>
+
+  <% else %>
+    <% @index += 1 %>
+  <% end %>
+
+
 <% end %>
