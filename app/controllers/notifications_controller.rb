@@ -25,6 +25,7 @@ class NotificationsController < ApplicationController
     @notification = Notification.where(user_id: current_user).last
     @notification.update!(email:  params[:notification][:email])
     redirect_to notifications_path
+    NewsMailer.index.deliver
   end
 
   def create

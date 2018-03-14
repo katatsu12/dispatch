@@ -16,6 +16,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'validates_email_format_of'
 gem 'hirb'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
