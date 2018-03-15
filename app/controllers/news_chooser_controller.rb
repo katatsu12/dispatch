@@ -115,7 +115,7 @@ private
     @a = @news_chooser.news_types.each_char.to_a
     @index = 0
     if Notification.where(user_id: current_user).count == 0
-      @mail = "currently you dont have emaill. Please chnge it below"
+      @mail = "currently you dont have emaill. Please change it below"
     else
       @notification = Notification.where(user_id: current_user).last
       @mail = "your current emails is #{@notification.email}"

@@ -16,7 +16,7 @@ class NewsMailer < ApplicationMailer
               , 'ua_entertainment', 'ua_health', 'ua_science' , 'ua_sports' , 'ua_technology']
 
 
-    mail to: "#{@email_to_send.email}"
+    mail(to: "#{@email_to_send.email}", subject: 'News Dispatch')
   end
 
   def bbc # take top 20 news from BBC

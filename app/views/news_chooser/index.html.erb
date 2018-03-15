@@ -1,9 +1,8 @@
 <h3><%= @mail %></h3>
 <%= link_to('Change email here' , notifications_path) %>
 
-<%= button_to "Send", action: "send_email" %>
-<br>
 <% if Notification.where(user_id: current_user).count > 0 %>
+  <%= button_to "Send", action: "send_email" %><br>
   <% @news_a.each do |i|  %>
     <%= button_to "#{i}" , action: "#{i}" %>
     <%  if @a[@index] == '0' %>
