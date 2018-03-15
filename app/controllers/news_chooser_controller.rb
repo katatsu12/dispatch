@@ -12,6 +12,10 @@ class NewsChooserController < ApplicationController
 
   end
 
+  def send_email
+    NewsMailer.index(current_user).deliver
+  end
+
   #sites-----------------------------------------------------------------------
 
   def bbc

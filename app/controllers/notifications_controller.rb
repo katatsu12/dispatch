@@ -25,7 +25,6 @@ class NotificationsController < ApplicationController
     @notification = Notification.where(user_id: current_user).last
     @notification.update!(email:  params[:notification][:email])
     redirect_to notifications_path
-    NewsMailer.index.deliver
   end
 
   def create
@@ -35,7 +34,7 @@ class NotificationsController < ApplicationController
       if @notification.save
         format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
         format.json { render :index, status: :created, location: @notification }
-        NewsMailer.index.deliver
+        # NewsMailer.index.deliver
       else
         format.html { redirect_to @notification, notice: 'Your email is not looking good' }
         format.json { render json: @notification.errors, status: :unprocessable_entity }
