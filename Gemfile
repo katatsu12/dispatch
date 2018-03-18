@@ -16,20 +16,16 @@ gem 'jquery-rails'
 gem 'validates_email_format_of'
 gem 'hirb'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'pg'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-group :production do
-  gem 'pg'
-end
-
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'sqlite3'
 end
 
 group :development do
