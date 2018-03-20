@@ -18,7 +18,7 @@ class NewsChooser < ApplicationRecord
 
   def self.before_index
     if NewsChooser.where(user_id:  current_user).count == 0
-         NewsChooser.create(:news_types => '0'*14, :user_id => current_user).save
+         NewsChooser.create(:news_types => '0'*12, :user_id => current_user).save
     end
   end
 

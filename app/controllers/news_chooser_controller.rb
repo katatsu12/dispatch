@@ -15,79 +15,79 @@ class NewsChooserController < ApplicationController
   end
 
   #sites-----------------------------------------------------------------------
-
-  def bbc
-    news_id = 0
-    NewsChooser.news_types_changer(news_id)
-  end
-
-  def tc
-    news_id = 1
-    NewsChooser.news_types_changer(news_id)
-  end
-
+  #
+  # def bbc
+  #   news_id = 0
+  #   NewsChooser.news_types_changer(news_id)
+  # end
+  #
+  # def tc
+  #   news_id = 1
+  #   NewsChooser.news_types_changer(news_id)
+  # end
+  #
 
   #us--------------------------------------------------------------------------
 
   def us_business
-    news_id = 2
+    news_id = 0
     NewsChooser.news_types_changer(news_id)
   end
 
   def us_entertainment
-    news_id = 3
+    news_id = 1
     NewsChooser.news_types_changer(news_id)
   end
 
   def us_health
-    news_id = 4
+    news_id = 2
     NewsChooser.news_types_changer(news_id)
   end
 
   def us_science
-    news_id = 5
+    news_id = 3
     NewsChooser.news_types_changer(news_id)
   end
 
   def us_sports
-    news_id = 6
+    news_id = 4
     NewsChooser.news_types_changer(news_id)
   end
 
   def us_technology
-    news_id = 7
+    news_id = 5
     NewsChooser.news_types_changer(news_id)
   end
 
   #ua--------------------------------------------------------------------------
 
   def ua_business
-    news_id = 8
+    news_id = 6
     NewsChooser.news_types_changer(news_id)
   end
 
   def ua_entertainment
-    news_id = 9
+    news_id = 7
     NewsChooser.news_types_changer(news_id)
   end
 
   def ua_health
-    news_id = 10
+    news_id = 8
     NewsChooser.news_types_changer(news_id)
   end
 
   def ua_science
-    news_id = 11
+    news_id = 9
     NewsChooser.news_types_changer(news_id)
   end
 
   def ua_sports
-    news_id = 12
+    news_id = 10
     NewsChooser.news_types_changer(news_id)
   end
 
   def ua_technology
-    news_id = 13
+    news_id = 11
     NewsChooser.news_types_changer(news_id)
   end
 
@@ -103,7 +103,7 @@ private
       @mail = "your current emails is #{@notification.email}"
     end
 
-    @news_a = ['bbc', 'tc' , 'us_business', 'us_entertainment', 'us_health' \
+    @news_a = ['us_business', 'us_entertainment', 'us_health' \
               , 'us_science', 'us_sports', 'us_technology', 'ua_business' \
               , 'ua_entertainment', 'ua_health', 'ua_science' , 'ua_sports' , 'ua_technology']
   end

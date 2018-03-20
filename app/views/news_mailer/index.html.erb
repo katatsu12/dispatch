@@ -10,14 +10,8 @@
   </head>
 
   <body>
-    <% @a.each do |i| %>
-      <% if i == "1" %>
-        <% @arr[@index].call %>
-          <h3><%= @news_a[@index]%></h3>
-            <% @index += 1 %>
-              <% @inc = 0 %>
 
-                <% $b[2][1].each do |i| %>
+                <% @arr_with_news.each do |i| %>
                   <div class="media">
                     <img class="mr-3" src="<%= i['urlToImage'] %>" alt="Generic placeholder image" height="64" width="70">
                     <div class="media-body">
@@ -28,15 +22,6 @@
                     </div>
                   </div>
                   <br>
-
-                  <% @inc += 1 %>
-                    <% if @inc == 3%>
-                      <% break %><% end %>
-                    <% end %>
-
-                  <% else %>
-                    <% @index += 1 %><% end %>
-
                   <% end %>
                 </body>
               </html>
