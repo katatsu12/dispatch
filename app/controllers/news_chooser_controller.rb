@@ -93,17 +93,17 @@ class NewsChooserController < ApplicationController
 
 private
   def index_info
-    @news_chooser = NewsChooser.where(user_id: current_user).last
-    @a = @news_chooser.news_types.each_char.to_a
+    news_chooser = NewsChooser.where(user_id: current_user).last
+    @news_types = news_chooser.news_types.each_char.to_a
     @index = 0
     if Notification.where(user_id: current_user).count == 0
       @mail = "currently you dont have emaill. Please change it below"
     else
-      @notification = Notification.where(user_id: current_user).last
-      @mail = "your current emails is #{@notification.email}"
+      notification = Notification.where(user_id: current_user).last
+      @mail = "your current emails is #{notification.email}"
     end
 
-    @news_a = ['us_business', 'us_entertainment', 'us_health' \
+    @news_labels = ['us_business', 'us_entertainment', 'us_health' \
               , 'us_science', 'us_sports', 'us_technology', 'ua_business' \
               , 'ua_entertainment', 'ua_health', 'ua_science' , 'ua_sports' , 'ua_technology']
   end
