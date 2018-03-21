@@ -45,7 +45,7 @@ module NewsPacker
     @url = 'https://newsapi.org/v2/top-headlines?'\
           "country=#{country}&"\
           "category=#{category}&"\
-          'apiKey=6dd59350f84a476490213e76baf5d95b'
+          "apiKey=#{Rails.application.secrets[:newsapi]}"
   end
 
   def self.sanya_gorit
