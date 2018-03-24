@@ -17,6 +17,7 @@ gem 'validates_email_format_of'
 gem 'hirb'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'pg'
+gem 'sidekiq'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
