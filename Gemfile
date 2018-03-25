@@ -18,6 +18,7 @@ gem 'hirb'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'pg'
 gem 'sidekiq'
+gem 'sidetiq', '~> 0.7.2'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'

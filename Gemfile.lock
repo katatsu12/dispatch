@@ -58,6 +58,23 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
+    celluloid (0.17.3)
+      celluloid-essentials
+      celluloid-extras
+      celluloid-fsm
+      celluloid-pool
+      celluloid-supervision
+      timers (>= 4.1.1)
+    celluloid-essentials (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-extras (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-fsm (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-pool (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-supervision (0.20.6)
+      timers (>= 4.1.1)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.2.2)
@@ -82,8 +99,10 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hirb (0.7.3)
+    hitimes (1.2.6)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    ice_cube (0.14.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -174,6 +193,10 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
+    sidetiq (0.7.2)
+      celluloid (>= 0.17.3)
+      ice_cube (~> 0.14.0)
+      sidekiq (>= 4.1.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -189,6 +212,8 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    timers (4.1.2)
+      hitimes
     turbolinks (5.1.0)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
@@ -231,6 +256,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq
+  sidetiq (~> 0.7.2)
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails
