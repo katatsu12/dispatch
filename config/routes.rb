@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  resources :tasks
   resources :news
   resources :notifications
   devise_for :users

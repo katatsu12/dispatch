@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :notifications
   has_many :news_choosers
+  has_many :tasks
 end
