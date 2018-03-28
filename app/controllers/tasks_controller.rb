@@ -7,6 +7,10 @@ class TasksController < ApplicationController
     @tasks = Task.where(user_id: current_user).order(:time)
   end
 
+  def send_email
+    TaskMailer.index(current_user , 3).deliver
+  end
+
   # GET /tasks/1
   # GET /tasks/1.json
   def show

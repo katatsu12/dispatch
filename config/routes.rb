@@ -26,5 +26,6 @@ Rails.application.routes.draw do
   post '/ua_technology' , to: 'news_chooser#ua_technology'
 
   post '/send_email', to: 'news_chooser#send_email'
+  post '/send_ema1l', to: 'tasks#send_email'
 
 end
