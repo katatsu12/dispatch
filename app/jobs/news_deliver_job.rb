@@ -2,6 +2,9 @@ class NewsDeliverJob < ApplicationJob
   queue_as :default
 
   def perform
-    NewsMailer.index(1).deliver
+    users_for_send = NewsChooser.where(:send_choose => 1)
+    users_for_send.each do |u|
+      NewsMailer.index(u.user_id).deliver
+    end
   end
 end
