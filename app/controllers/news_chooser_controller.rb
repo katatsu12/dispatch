@@ -11,7 +11,7 @@ class NewsChooserController < ApplicationController
   end
 
   def send_email
-    NewsMailer.index(current_user).deliver
+    NewsDeliverJob.perform_later
   end
 
   # sites-----------------------------------------------------------------------
