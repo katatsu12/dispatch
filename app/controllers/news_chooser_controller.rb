@@ -11,7 +11,8 @@ class NewsChooserController < ApplicationController
   end
 
   def send_email
-    NewsDeliverJob.perform_later
+    NewsChooser.send_choose_changer
+    redirect_to root_path
   end
 
   # sites-----------------------------------------------------------------------
