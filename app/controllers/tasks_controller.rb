@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user! , :set_current_user
   # GET /tasks
   # GET /tasks.json
   def index
@@ -74,5 +74,9 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:title, :text, :time)
+    end
+
+    def set_current_user
+      NewsChooser.current_user = current_user.id
     end
 end
