@@ -16,12 +16,22 @@ class NewsChooser < ApplicationRecord
     @news_chooser.update!(:news_types =>  b)
   end
 
-  def self.before_index
-    if NewsChooser.where(user_id:  current_user).count == 0
-         NewsChooser.create(:news_types => '0'*12, :user_id => current_user).save
+  def self.send_choose_changer
+    @send_choose = NewsChooser.where(user_id: current_user).last
+    a = @send_choose.send_choose
+
+    if a == 0
+      a = 1
+    else
+      a = 0
     end
+
+    @send_choose.update!(:send_choose =>  a)
   end
 
-
-
+  def self.before_index
+    if NewsChooser.where(user_id:  current_user).count == 0
+         NewsChooser.create(:news_types => '0'*12, :send_choose => 0, :user_id => current_user).save
+    end
+  end
 end
