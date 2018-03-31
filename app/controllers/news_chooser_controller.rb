@@ -11,7 +11,8 @@ class NewsChooserController < ApplicationController
   end
 
   def send_email
-    NewsMailer.index(current_user).deliver
+    NewsChooser.send_choose_changer
+    redirect_to root_path
   end
 
   # sites-----------------------------------------------------------------------
@@ -96,6 +97,7 @@ class NewsChooserController < ApplicationController
   def index_info
     news_chooser = NewsChooser.where(user_id: current_user).last
     @news_types = news_chooser.news_types.each_char.to_a
+    @subed = NewsChooser.where(user_id: current_user).last
     @index = 0
     if Notification.where(user_id: current_user).count == 0
       @mail = 'currently you dont have emaill. Please change it below'

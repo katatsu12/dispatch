@@ -2,7 +2,12 @@
 <%= link_to('Change email here' , notifications_path) %>
 
 <% if Notification.where(user_id: current_user).count > 0 %>
-  <%= button_to "Send", action: "send_email" %><br>
+  <%= button_to "Subscribed", action: "send_email" %><br>
+  <% if @subed.send_choose == 1 %>
+    <h4 style="color:green;">You subscribed to EMAILS</h4>
+  <% else %>
+    <h4 style="color:red;">You don't subscribed to EMAILS</h4>
+  <% end %>
   <% @news_labels.each do |i|  %>
     <%= button_to "#{i}" , action: "#{i}" %>
     <%  if @news_types[@index] == '0' %>

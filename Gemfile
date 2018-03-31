@@ -17,6 +17,9 @@ gem 'validates_email_format_of'
 gem 'hirb'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'pg'
+gem 'sidekiq'
+gem 'sidekiq-cron'
+gem 'redis'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
@@ -34,6 +37,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener'
+  gem 'whenever', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

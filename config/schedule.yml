@@ -1,0 +1,4 @@
+send_news:
+  cron: "* * * * *"
+  class: "NewsDeliverJob"
+  queue: default
