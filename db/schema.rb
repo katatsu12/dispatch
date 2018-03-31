@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180327153820) do
-=======
 ActiveRecord::Schema.define(version: 20180329160407) do
->>>>>>> sidekiq_news2
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
