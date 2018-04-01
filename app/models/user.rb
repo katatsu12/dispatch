@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :news_choosers
   has_many :tasks
+
+  after_create do
+    UserRegistrationMailer.delay.welcome_email(User.last)
+  end
 end
