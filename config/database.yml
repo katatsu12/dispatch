@@ -1,21 +1,21 @@
-default:     &default
-  adapter:   postgresql
-  encoding:  unicode
-  pool:      <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username:  den
-  password:  '123456789'
+default:      &default
+  adapter:    postgresql
+  encoding:   unicode
+  pool:       5
+  username:   den
+  password:   '123456789'
+  host:       localhost # Swap in production
+  port:       5432
 
 development:
-  <<:        *default
-  database:  dispatch
-  host:      localhost
+  <<:         *default
+  database:   dispatch
 
 test:
-  <<:        *default
-  database:  db/test.postgresql
+  <<:         *default
+  database:   db/test.postgresql
 
 production:
-  <<:        *default
-  database:  dispatch
-  host:      https://dispatch-application.herokuapp.com/
-  database:  db/production.postgresql
+  <<:         *default
+  database:   dispatch
+  database:   db/production.postgresql

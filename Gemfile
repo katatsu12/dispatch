@@ -20,6 +20,7 @@ gem 'pg'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'redis'
+gem 'nokogiri', '~> 1.8', '>= 1.8.2'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
