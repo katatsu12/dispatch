@@ -2,9 +2,9 @@ default:      &default
   adapter:    postgresql
   encoding:   unicode
   pool:       5
-  username:   den
-  password:   '123456789'
-  host:       localhost # Swap in production
+  username:   postgres
+  password:
+  host:       db
   port:       5432
 
 development:
@@ -13,9 +13,8 @@ development:
 
 test:
   <<:         *default
-  database:   db/test.postgresql
+  database:   dispatch_test
 
 production:
   <<:         *default
   database:   dispatch
-  database:   db/production.postgresql
