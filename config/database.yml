@@ -7,7 +7,7 @@ development:
   <<:        *default
   database:  dispatch
   username:  den
-  password:  '123456789'
+  password:  '123321123321'
   host:      localhost
 
 # Warning:   The database defined as "test" will be erased and
