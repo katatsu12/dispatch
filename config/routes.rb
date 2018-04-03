@@ -2,6 +2,15 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :news_choosers
+    resources :notifications
+    resources :tasks
+
+    root to: "users#index"
+  end
+
   resources :tasks
   resources :news
   resources :notifications
