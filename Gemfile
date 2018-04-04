@@ -21,6 +21,7 @@ gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'redis'
 gem 'administrate'
+gem 'omniauth-google-oauth2'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
