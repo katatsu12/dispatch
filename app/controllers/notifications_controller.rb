@@ -1,5 +1,4 @@
 class NotificationsController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     if Notification.where(user_id: current_user).count > 0

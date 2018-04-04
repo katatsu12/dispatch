@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user! , :set_current_user
+  before_action :set_current_user
   # GET /tasks
   # GET /tasks.json
   def index

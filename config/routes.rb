@@ -2,7 +2,11 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
+
+  devise_for :admin_user
+
   namespace :admin do
+
     resources :users
     resources :news_choosers
     resources :notifications
@@ -39,12 +43,7 @@ Rails.application.routes.draw do
   post '/send_email', to: 'news_chooser#send_email'
   post '/send_ema1l', to: 'tasks#send_email'
 
-  # FOR THE DEVISE ADMIN
-  # authenticate :user, ->(u) { u.admin? } do
-  #   mount Sidekiq::Web => '/sidekiq'
-  # end
-
-  authenticate :user do
+  authenticate :admin_user do
     mount Sidekiq::Web => '/sidekiq'
   end
 end
