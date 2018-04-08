@@ -2,23 +2,21 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  devise_for :admin_user
+  resources :sessions, only: %i[create destroy]
+  resource :home, only: [:show]
 
-  namespace :admin do
+  get 'sessions/create'
 
-    resources :users
-    resources :news_choosers
-    resources :notifications
-    resources :tasks
-
-    root to: "users#index"
-  end
+  get 'sessions/destroy'
 
   resources :tasks
   resources :news
   resources :notifications
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   root to: 'news_chooser#index'
 
   # news_choser(sites)----------------------------------------------------------
@@ -42,6 +40,17 @@ Rails.application.routes.draw do
 
   post '/send_email', to: 'news_chooser#send_email'
   post '/send_ema1l', to: 'tasks#send_email'
+
+  devise_for :admin_user
+
+  namespace :admin do
+    resources :users
+    resources :news_choosers
+    resources :notifications
+    resources :tasks
+
+    root to: 'users#index'
+  end
 
   authenticate :admin_user do
     mount Sidekiq::Web => '/sidekiq'
