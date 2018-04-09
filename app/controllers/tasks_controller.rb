@@ -8,9 +8,6 @@ class TasksController < ApplicationController
     @archived_tasks = Task.where(user_id: current_user).where(sended: 1).order(:time)
   end
 
-  def send_email
-    TaskMailer.index(current_user , 3).deliver
-  end
 
   # GET /tasks/1
   # GET /tasks/1.json
