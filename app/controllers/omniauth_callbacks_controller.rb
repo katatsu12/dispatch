@@ -11,4 +11,20 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
     end
   end
+
+  def twitter; end
+
+  def github
+    user = User.from_omniauth(env['omniauth.auth'])
+
+    if user.valid?
+      session[:user_id] = user.id
+      redirect_to request.env['omniauth.origin']
+    end
+  end
+
+  def destroy
+    reset_session
+    redirect_to request.referer
+  end
 end

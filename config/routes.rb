@@ -2,17 +2,6 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
-
-  resources :sessions, only: %i[create destroy]
-  resource :home, only: [:show]
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
   resources :tasks
   resources :news
   resources :notifications
