@@ -1,4 +1,9 @@
-send_news:
-  cron: "* * * * *"
-  class: "NewsDeliverJob"
+send_daily:
+  cron: "0 14 * * *"
+  class: "DailyNewsDeliverJob"
+  queue: default
+
+send_weekly:
+  cron: "0 14 * * sun"
+  class: "WeeklyNewsDeliverJob"
   queue: default

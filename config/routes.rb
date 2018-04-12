@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :news
   resources :notifications
   devise_for :users
-  root to: 'news_chooser#index'
+  root to: 'notifications#index'
 
   # news_choser(sites)----------------------------------------------------------
   get '/news_chooser', to: 'news_chooser#index'
@@ -40,7 +40,8 @@ Rails.application.routes.draw do
   post '/ua_sports', to: 'news_chooser#ua_sports'
   post '/ua_technology', to: 'news_chooser#ua_technology'
 
-  post '/send_email', to: 'news_chooser#send_email'
+  post '/send_weekly', to: 'news_chooser#send_weekly'
+  post '/send_daily', to: 'news_chooser#send_daily'
 
   authenticate :admin_user do
     mount Sidekiq::Web => '/sidekiq'
