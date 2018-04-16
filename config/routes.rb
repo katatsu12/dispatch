@@ -2,6 +2,20 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
+
+
+  devise_for :admin_user
+
+  namespace :admin do
+
+    resources :users
+    resources :news_choosers
+    resources :notifications
+    resources :tasks
+
+    root to: "users#index"
+  end
+
   resources :tasks
   resources :news
   resources :notifications
@@ -13,7 +27,7 @@ Rails.application.routes.draw do
     get '/signout' => 'devise/sessions#destroy', :as => 'signout'
   end
 
-  root to: 'news_chooser#index'
+  root to: 'notifications#index'
 
   # news_choser(sites)----------------------------------------------------------
   get '/news_chooser', to: 'news_chooser#index'
@@ -37,16 +51,6 @@ Rails.application.routes.draw do
   post '/send_weekly', to: 'news_chooser#send_weekly'
   post '/send_daily', to: 'news_chooser#send_daily'
 
-  devise_for :admin_user
-
-  namespace :admin do
-    resources :users
-    resources :news_choosers
-    resources :notifications
-    resources :tasks
-
-    root to: 'users#index'
-  end
 
   authenticate :admin_user do
     mount Sidekiq::Web => '/sidekiq'
