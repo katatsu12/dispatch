@@ -48,8 +48,35 @@ module NewsPacker
           "apiKey=#{Rails.application.secrets[:newsapi]}"
   end
 
-  def self.sanya_gorit
-    puts 'sanya na orbite'
+  def self.choosed_news(current_user)
+    news_chooser = NewsChooser.where(user_id: current_user).last
+    news_types = news_chooser.news_types.each_char.to_a
+    index = 0
+
+    news_arr = [ 'us business' , 'us entertainment'  ,
+                    'us health'  , 'us science'  ,
+                    'us sports'  , 'us technology'  ,
+                    'ua business'  , 'ua entertainment'  ,
+                    'ua health'  , 'ua science'  ,
+                    'ua sports'  , 'ua technology'   ]
+
+    arr_with_choosed_news = "you are subscrivbed to this news :"
+    news_types.each do |i|
+      if i == "1"
+        if index >= 1
+          arr_with_choosed_news << ", "
+        end
+        arr_with_choosed_news << news_arr[index].to_s
+        index += 1
+      else
+        index += 1
+      end
+    end
+
+    if arr_with_choosed_news == "you are subscrivbed to this news :"
+      arr_with_choosed_news = "you are not subscrivbed to news"
+    end
+    return arr_with_choosed_news
   end
 
 end

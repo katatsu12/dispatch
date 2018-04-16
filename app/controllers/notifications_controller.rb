@@ -1,9 +1,15 @@
+require 'news_packer'
 class NotificationsController < ApplicationController
 
   def index
+    if user_signed_in?
+      NewsChooser.current_user = current_user.id
+    end
     if Notification.where(user_id: current_user).count > 0
       @notification = Notification.where(user_id: current_user).last
       @mail = "your current emails is #{@notification.email}"
+      @choosed_news = NewsPacker.choosed_news(current_user)
+
     else
       @mail = "Before using our features write down your email below"
     end
@@ -45,4 +51,6 @@ class NotificationsController < ApplicationController
     def notification_params
       params.permit(:email)
     end
+
+
 end

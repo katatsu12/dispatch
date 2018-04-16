@@ -1,10 +1,6 @@
 class NewsChooserController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_current_user
 
-  def set_current_user
-    NewsChooser.current_user = current_user.id
-  end
 
   def index
     index_info
