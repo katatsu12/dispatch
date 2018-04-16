@@ -1,24 +1,49 @@
-<p id="notice"><%= notice %></p>
-<h1>Email settings</h1>
-<h3><%= @mail %></h3>
-
-<div>
-  <%= render 'form', notification: @notification %>
-</div>
+<style type="text/css">
+ .divs {
+  height: 500px;
+  height: fill-available;
+  width: 45%;
+  background: #ccc;
+  padding: 5px;
+  padding-right: 20px;
+  border: solid 1px black;
+  display: inline-block;
+ }
+</style>
 
 <% if user_signed_in? %>
-  <ul>
-    <li><%= link_to 'Account', edit_user_registration_path %></li>
-    <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-  </ul>
-<% else %>
-  <ul>
-    <li><%=link_to 'Sign in' , new_user_session_path %></li>
-    <li><%=link_to 'Sign up' , new_user_registration_path %></li>
-  </ul>
-<% end %>
-<br>
+  <div align="right">
+    <%= link_to 'Account', edit_user_registration_path %>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+  </div>
 
-<%= link_to('temporary link to news chooser' , news_chooser_url) %>
-<br>
-<%= link_to('temporary link to tasks' , tasks_url) %>
+
+  <p id="notice" align="center"><%= notice %></p>
+  <h3 align="center"><%= @mail %></h3>
+
+  <div align="center">
+    <%= render 'form', notification: @notification %>
+  </div>
+
+
+  <% if Notification.where(user_id: current_user).count > 0 %>
+  <div align="center">
+    <%= link_to('temporary link to news chooser' , news_chooser_url) %>
+    <br>
+    <%= link_to('temporary link to tasks' , tasks_url) %>
+  </div>
+
+  <% end %>
+
+  <div class="divs" align='center'>
+  </div>
+  <div class="divs" align='center'>
+  </div>
+
+
+
+
+
+  <% else %>
+  <%= link_to "sing in" , new_user_session_path %>
+<% end %>

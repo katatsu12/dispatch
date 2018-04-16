@@ -5,7 +5,7 @@ class NotificationsController < ApplicationController
       @notification = Notification.where(user_id: current_user).last
       @mail = "your current emails is #{@notification.email}"
     else
-      @mail = "Please write down your email below"
+      @mail = "Before using our features write down your email below"
     end
   end
 

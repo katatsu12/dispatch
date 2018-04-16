@@ -1,11 +1,11 @@
 <%= form_with(model: notification, local: true) do |form| %>
 
-<div class="field">
+<div class="field" >
   <%= form.label :email %>
   <%= form.text_field :email, id: :notification_email %>
 </div>
 
-<div class="actions">
+<div class="actions" >
   <%= form.submit :class => "btn btn-primary" %>
 </div>
 
