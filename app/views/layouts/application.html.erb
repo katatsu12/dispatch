@@ -43,8 +43,8 @@
         <div class="navbar-header">
           <!-- Logo -->
           <div class="navbar-brand">
-            <a href="index.html">
-              <!-- <img class="logo" src="img/logo.png" alt="logo"> -->
+            <a href="/">
+            <%= image_tag "logo.png", class: "logo" %>
             </a>
           </div>
           <!-- /Logo -->
@@ -62,7 +62,7 @@
           <li><%= link_to 'News', news_chooser_path %></li>
           <li><%= link_to 'Tasks manager', tasks_path %></li>
           <li><a href="index.html#about">About</a></li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'Logout', '/signout', method: :delete %></li>
         </ul>
         <!-- /Main navigation -->
 
