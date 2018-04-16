@@ -1,29 +1,4 @@
-<style type="text/css">
- .divs {
-  height: 500px;
-  height: fill-available;
-  width: 45%;
-  background: #ccc;
-  padding: 5px;
-  padding-right: 20px;
-  border: solid 1px black;
-  display: inline-block;
-  text-align: center;
-
- }
- .divs h3 {
-   position: relative;
-   top: 50%;
-   transform: translateY( -50%);
- }
-</style>
-
 <% if user_signed_in? %>
-  <div align="right">
-    <%= link_to 'Account', edit_user_registration_path %>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-  </div>
-
 
   <p id="notice" align="center"><%= notice %></p>
   <h3 align="center"><%= @mail %></h3>
@@ -34,17 +9,19 @@
 
 
   <% if Notification.where(user_id: current_user).count > 0 %>
-  <div align="center">
-    <div class="divs">
+
+  <div align="center" class="col-md-4">
+    <a href="/news_chooser">
+    <div class="about">
+      <h3>News:</h3>
       <h3><%= @choosed_news %></h3>
     </div>
-    <div class="divs">
-      <h3><%= @mail %></h3>
+    </a>
+    <a href="/tasks">
+    <div class="about">
+      <h3>**Tasks in development**</h3>
     </div>
-    <br>
-    <%= link_to('temporary link to news chooser' , news_chooser_url) %>
-    <br>
-    <%= link_to('temporary link to tasks' , tasks_url) %>
+    </a>
   </div>
 
   <% end %>
