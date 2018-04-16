@@ -20,7 +20,13 @@ Rails.application.routes.draw do
   resources :news
   resources :notifications
 
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'devise/sessions', registrations: 'devise/registrations', omniauth_callbacks: 'omniauth_callbacks', confirmations: 'devise/confirmations' }
+  as :user do
+    get '/login' => 'sessions#new', :as => 'login'
+    get '/signup' => 'registrations#new', :as => 'signup'
+    get '/signout' => 'devise/sessions#destroy', :as => 'signout'
+  end
+
   root to: 'notifications#index'
 
   # news_choser(sites)----------------------------------------------------------
