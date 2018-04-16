@@ -6,13 +6,17 @@ class NewsChooserController < ApplicationController
   end
 
   def index
-    NewsChooser.before_index
     index_info
   end
 
-  def send_email
-    NewsChooser.send_choose_changer
-    redirect_to root_path
+  def send_daily
+    NewsChooser.send_daily_changer
+    redirect_to news_chooser_url
+  end
+
+  def send_weekly
+    NewsChooser.send_weekly_changer
+    redirect_to news_chooser_url
   end
 
   # sites-----------------------------------------------------------------------
@@ -113,6 +117,6 @@ class NewsChooserController < ApplicationController
 
   def swap(news_id)
     NewsChooser.news_types_changer(news_id)
-    redirect_to root_path
+    redirect_to news_chooser_url
   end
 end

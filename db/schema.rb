@@ -35,7 +35,8 @@ ActiveRecord::Schema.define(version: 20180407072310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "send_choose"
+    t.integer "send_daily"
+    t.integer "send_weekly"
     t.index ["user_id"], name: "index_news_choosers_on_user_id"
   end
 
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20180407072310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "sended"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 

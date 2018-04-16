@@ -34,8 +34,8 @@ Rails.application.routes.draw do
   post '/ua_sports', to: 'news_chooser#ua_sports'
   post '/ua_technology', to: 'news_chooser#ua_technology'
 
-  post '/send_email', to: 'news_chooser#send_email'
-  post '/send_ema1l', to: 'tasks#send_email'
+  post '/send_weekly', to: 'news_chooser#send_weekly'
+  post '/send_daily', to: 'news_chooser#send_daily'
 
   devise_for :admin_user
 

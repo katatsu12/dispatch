@@ -2,12 +2,21 @@
 <%= link_to('Change email here' , notifications_path) %>
 
 <% if Notification.where(user_id: current_user).count > 0 %>
-  <%= button_to "Subscribed", action: "send_email" %><br>
-  <% if @subed.send_choose == 1 %>
-    <h4 style="color:green;">You subscribed to EMAILS</h4>
+
+  <%= button_to "Daily news", action: "send_daily" %><br>
+  <% if @subed.send_daily == 1 %>
+    <h4 style="color:green;">You subscribed to Daily news</h4>
   <% else %>
-    <h4 style="color:red;">You don't subscribed to EMAILS</h4>
+    <h4 style="color:red;">You don't subscribed to Daily news</h4>
   <% end %>
+
+  <%= button_to "Weekly news", action: "send_weekly" %><br>
+  <% if @subed.send_weekly == 1 %>
+    <h4 style="color:green;">You subscribed to Weekly news</h4>
+  <% else %>
+    <h4 style="color:red;">You don't subscribed to Weekly news</h4>
+  <% end %>
+
   <% @news_labels.each do |i|  %>
     <%= button_to "#{i}" , action: "#{i}" %>
     <%  if @news_types[@index] == '0' %>

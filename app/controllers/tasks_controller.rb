@@ -4,12 +4,10 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.where(user_id: current_user).order(:time)
+    @tasks = Task.where(user_id: current_user).where(sended: 0).order(:time)
+    @archived_tasks = Task.where(user_id: current_user).where(sended: 1).order(:time)
   end
 
-  def send_email
-    TaskMailer.index(current_user , 3).deliver
-  end
 
   # GET /tasks/1
   # GET /tasks/1.json
@@ -29,7 +27,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = current_user.tasks.build(task_params)
-
+    @task.update(:sended => 0)
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
