@@ -2,34 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8">
-  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  	<title>Dispatch</title>
+    <title>Dispatch</title>
 
-  	<!-- Google font -->
+    <!-- Google font -->
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" %>
 
-  	<!-- Bootstrap -->
+    <!-- Bootstrap -->
     <%= stylesheet_link_tag "css/bootstrap.min.css" %>
 
-  	<!-- Owl Carousel -->
+    <!-- Owl Carousel -->
     <%= stylesheet_link_tag "css/owl.carousel.css" %>
     <%= stylesheet_link_tag "css/owl.theme.default.css" %>
 
-  	<!-- Magnific Popup -->
+    <!-- Magnific Popup -->
     <%= stylesheet_link_tag "css/magnific-popup.css" %>
 
-  	<!-- Font Awesome Icon -->
+    <!-- Font Awesome Icon -->
     <%= stylesheet_link_tag "css/font-awesome.min.css" %>
 
-  	<!-- Custom stlylesheet -->
+    <!-- Custom stlylesheet -->
     <%= stylesheet_link_tag "css/style.css" %>
 
-    <!-- <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> -->
-
+    <!-- <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> -->
 
     <%= csrf_meta_tags %>
   </head>
@@ -44,7 +42,7 @@
           <!-- Logo -->
           <div class="navbar-brand">
             <a href="/">
-            <%= image_tag "logo.png", class: "logo" %>
+              <%= image_tag "logo.png", class: "logo" %>
             </a>
           </div>
           <!-- /Logo -->
@@ -56,14 +54,28 @@
           <!-- /Collapse nav button -->
         </div>
 
-        <!--  Main navigation  -->
+        <!-- Main navigation -->
         <ul class="main-nav nav navbar-nav navbar-right">
           <li><%= link_to 'Home', root_path %></li>
           <li><%= link_to 'News', news_chooser_path %></li>
           <li><%= link_to 'Tasks manager', tasks_path %></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><%= link_to 'Logout', '/signout', method: :delete %></li>
+          <li>
+            <a href="index.html#about">About</a>
+          </li>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to 'Sing Out', '/signout', method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign Up", new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "Sign In", new_user_session_path %>
+            </li>
+          <% end %>
         </ul>
+
         <!-- /Main navigation -->
 
       </div>
