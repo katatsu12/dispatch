@@ -10,7 +10,7 @@
     <h4 style="color:red;">You don't subscribed to Daily news</h4>
   <% end %>
 
-  <%= button_to "Weekly news", action: "send_weekly" %><br>
+  <%= button_to "Weekly news", action: "send_weekly", class: "btn btn-lg btn-primary btn-block" %><br>
   <% if @subed.send_weekly == 1 %>
     <h4 style="color:green;">You subscribed to Weekly news</h4>
   <% else %>
