@@ -1,28 +1,27 @@
+
 <h3><%= @mail %></h3>
 <%= link_to('Change email here' , notifications_path) %>
 
 <% if Notification.where(user_id: current_user).count > 0 %>
 
-  <%= button_to "Daily news", action: "send_daily" %><br>
   <% if @subed.send_daily == 1 %>
-    <h4 style="color:green;">You subscribed to Daily news</h4>
+    <%= button_to "Daily news", {action: "send_daily"} , class: "buttongreen" %><br>
   <% else %>
-    <h4 style="color:red;">You don't subscribed to Daily news</h4>
+    <%= button_to "Daily news", {action: "send_daily"} , class: "buttonred" %><br>
   <% end %>
 
-  <%= button_to "Weekly news", action: "send_weekly" %><br>
   <% if @subed.send_weekly == 1 %>
-    <h4 style="color:green;">You subscribed to Weekly news</h4>
+    <%= button_to "Weekly news", {action: "send_weekly"} , class: "buttongreen" %><br>
   <% else %>
-    <h4 style="color:red;">You don't subscribed to Weekly news</h4>
+    <%= button_to "Weekly news", {action: "send_weekly"} , class: "buttonred" %><br>
   <% end %>
 
   <% @news_labels.each do |i|  %>
-    <%= button_to "#{i}" , action: "#{i}" %>
     <%  if @news_types[@index] == '0' %>
-      <h4 style="color:red;">You don't subscribed to this news</h4>
+      <%= button_to "#{i}", {action: "#{i}"} , class: "buttonred" %><br>
     <% else %>
-      <h4 style="color:green;">You subscribed to this news</h4>
+      <%= button_to "#{i}", {action: "#{i}"} , class: "buttongreen" %><br>
     <% end %>
-    <% @index += 1 %><% end %>
+    <% @index += 1 %>
   <% end %>
+<% end %>

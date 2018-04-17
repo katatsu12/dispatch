@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :news_choosers
   has_many :tasks
 
+
   after_create do
     UserRegistrationMailer.delay.welcome_email(User.last)
   end
@@ -55,6 +56,14 @@ class User < ApplicationRecord
       end
     end
     user
+  end
+
+  def self.current
+    Thread.current[:user]
+  end
+
+  def self.current=(user)
+    Thread.current[:user] = user
   end
 
   # For Twitter (save the session eventhough we redirect user to registration page first)

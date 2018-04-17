@@ -1,10 +1,9 @@
 class NewsChooser < ApplicationRecord
-  cattr_accessor :current_user
   belongs_to :user
 
 
 
-  def self.news_types_changer(news_id)
+  def self.news_types_changer(news_id , current_user)
     @news_chooser = NewsChooser.where(user_id: current_user).last
     a = @news_chooser.news_types.each_char.to_a
 
@@ -20,7 +19,7 @@ class NewsChooser < ApplicationRecord
 
 
 
-  def self.send_daily_changer
+  def self.send_daily_changer(current_user)
     @send_choose = NewsChooser.where(user_id: current_user).last
     a = @send_choose.send_daily
 
@@ -33,7 +32,7 @@ class NewsChooser < ApplicationRecord
     @send_choose.update!(:send_daily =>  a)
   end
 
-  def self.send_weekly_changer
+  def self.send_weekly_changer(current_user)
     @send_choose = NewsChooser.where(user_id: current_user).last
     a = @send_choose.send_weekly
 

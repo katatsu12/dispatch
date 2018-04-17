@@ -1,8 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_current_user
-
+  
   # GET /tasks
   # GET /tasks.json
   def index
@@ -76,7 +75,4 @@ class TasksController < ApplicationController
       params.require(:task).permit(:title, :text, :time)
     end
 
-    def set_current_user
-      NewsChooser.current_user = current_user.id
-    end
 end

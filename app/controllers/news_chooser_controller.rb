@@ -7,12 +7,12 @@ class NewsChooserController < ApplicationController
   end
 
   def send_daily
-    NewsChooser.send_daily_changer
+    NewsChooser.send_daily_changer(current_user)
     redirect_to news_chooser_url
   end
 
   def send_weekly
-    NewsChooser.send_weekly_changer
+    NewsChooser.send_weekly_changer(current_user)
     redirect_to news_chooser_url
   end
 
@@ -96,8 +96,8 @@ class NewsChooserController < ApplicationController
   private
 
   def index_info
-    # news_chooser = NewsChooser.where(user_id: current_user).last
-    # @news_types = news_chooser.news_types.each_char.to_a
+    news_chooser = NewsChooser.where(user_id: current_user).last
+    @news_types = news_chooser.news_types.each_char.to_a
     @subed = NewsChooser.where(user_id: current_user).last
     @index = 0
     if Notification.where(user_id: current_user).count == 0
@@ -113,7 +113,7 @@ class NewsChooserController < ApplicationController
   end
 
   def swap(news_id)
-    NewsChooser.news_types_changer(news_id)
+    NewsChooser.news_types_changer(news_id , current_user)
     redirect_to news_chooser_url
   end
 end
