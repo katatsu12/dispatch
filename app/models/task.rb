@@ -1,8 +1,8 @@
 class Task < ApplicationRecord
   belongs_to :user
   after_create do
-    task = Task.where(:user_id == User.current).last
-    TaskMailer.delay_until(task.time).index(User.current , task.id)
+    task = Task.where(:user_id == User.current.id).last
+    TaskMailer.delay_until(task.time).index(User.current.id , task.id)
     Task.delay_until(task.time).sended_email(task.id)
   end
   private

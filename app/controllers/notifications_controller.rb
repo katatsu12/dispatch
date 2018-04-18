@@ -6,7 +6,6 @@ class NotificationsController < ApplicationController
       @notification = Notification.where(user_id: current_user).last
       @mail = "your current emails is #{@notification.email}"
       @choosed_news = NewsPacker.choosed_news(current_user)
-
     else
       @mail = "Before using our features write down your email below"
     end
@@ -36,7 +35,6 @@ class NotificationsController < ApplicationController
       if @notification.save
         format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
         format.json { render :index, status: :created, location: @notification }
-        # NewsMailer.index.deliver
       else
         format.html { redirect_to @notification, notice: 'Your email is not looking good' }
         format.json { render json: @notification.errors, status: :unprocessable_entity }
