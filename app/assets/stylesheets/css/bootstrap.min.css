@@ -2230,7 +2230,8 @@ pre code {
     width: 91.66666667%
   }
   .col-md-10 {
-    width: 83.33333333%
+    width: 83.33333333%;
+    padding-top: 65px;
   }
   .col-md-9 {
     width: 75%
