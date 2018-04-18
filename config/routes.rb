@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   root to: 'notifications#index'
 
+  get '/about', to: 'notifications#about'
+
   # news_choser(sites)----------------------------------------------------------
   get '/news_chooser', to: 'news_chooser#index'
   post '/bbc', to: 'news_chooser#bbc'

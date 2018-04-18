@@ -57,14 +57,19 @@
         <!-- Main navigation -->
         <ul class="main-nav nav navbar-nav navbar-right">
           <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'News', news_chooser_path %></li>
-          <li><%= link_to 'Tasks manager', tasks_path %></li>
+          <% if Notification.where(user_id: current_user).count > 0 %>
+            <li><%= link_to 'News', news_chooser_path %></li>
+            <li><%= link_to 'Tasks manager', tasks_path %></li>
+          <% end %>
           <li>
-            <a href="index.html#about">About</a>
+            <a href="/about">About</a>
           </li>
           <% if user_signed_in? %>
             <li>
-              <%= link_to 'Sing Out', '/signout', method: :delete %>
+              <%= link_to 'Sign Out', '/signout', method: :delete %>
+            </li>
+            <li>
+              <%= link_to "Account", edit_user_registration_path %>
             </li>
           <% else %>
             <li>

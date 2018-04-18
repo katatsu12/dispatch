@@ -99,10 +99,6 @@ a:hover, a:focus {
     color: #6195FF;
 }
 
-.white-text {
-    color: #FFF;
-}
-
 ::-moz-selection {
     background-color: #6195FF;
     color: #FFF;
@@ -207,10 +203,10 @@ input[type="text"], input[type="email"], input[type="password"], input[type="num
 	  background: white;
     border-bottom: 2px solid #EEE;
     color: #354052;
-    padding: 0px 10px;
     opacity: 0.5;
     -webkit-transition: 0.2s border-color, 0.2s opacity;
     transition: 0.2s border-color, 0.2s opacity;
+    padding-left: 10px;
 }
 
 textarea {
@@ -297,8 +293,6 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 \*------------------------------------*/
 
 #nav {
-    padding: 1px 0px;
-    background: #FFF;
     -webkit-transition: 0.2s padding;
     transition: 0.2s padding;
     z-index: 999;
@@ -595,6 +589,8 @@ header {
 
 .home-content h1 {
   text-transform: uppercase;
+  text-align: center;
+  padding-top: 60px;
 }
 .home-content button {
   margin-top: 20px;
@@ -629,7 +625,7 @@ header {
     text-align: center;
     padding: 40px 20px;
     border: 1px solid #EEE;
-    margin: 15px 0px;
+    margin: 25px 0px;
 }
 
 .about i {
@@ -1837,8 +1833,6 @@ header {
 	Social icons
 \*------------------------------------*/
 
-
-
 .fa {
   padding: 20px;
   font-size: 30px;
@@ -1868,4 +1862,26 @@ header {
 .fa-github {
   background: #333333;
   color: white !important;
+}
+
+/*------------------------------------*\
+	Error messages
+\*------------------------------------*/
+
+.error h2 {
+  text-align: center;
+  font-size:  0px;
+}
+
+.error li {
+  text-align: center;
+  font-size:  15px;
+}
+
+/*------------------------------------*\
+	divs in root page
+\*------------------------------------*/
+
+.col-md-42 {
+    width: 50%;
 }

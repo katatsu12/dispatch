@@ -1,34 +1,65 @@
-<% if user_signed_in? %>
+<div class="">
 
-  <p id="notice" align="center"><%= notice %></p>
-  <h3 align="center"><%= @mail %></h3>
+</div>
 
-  <div align="center">
-    <%= render 'form', notification: @notification %>
-  </div>
+  <% if user_signed_in? %>
 
-
-  <% if Notification.where(user_id: current_user).count > 0 %>
-
-  <div align="center" class="col-md-4">
-    <a href="/news_chooser">
-    <div class="about">
-      <h3>News:</h3>
-      <h3><%= @choosed_news %></h3>
+    <p id="notice" align="center"><%= notice %></p>
+    <h3 align="center"><%= @mail %></h3>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-md-offset-4">
+        <div align="center">
+          <%= render 'form', notification: @notification %>
+        </div>
+      </div>
     </div>
-    </a>
-    <a href="/tasks">
-    <div class="about">
-      <h3>**Tasks in development**</h3>
-    </div>
-    </a>
-  </div>
 
-  <% end %>
+    <% if Notification.where(user_id: current_user).count > 0 %>
 
+      <div class="center">
+        <a href="/news_chooser">
+          <div class="col-md-6">
+            <a href="/news_chooser">
+              <div class="about">
+                <h3>News:</h3>
+                <h3><%= @choosed_news %></h3>
+              </div>
+            </div>
+          </a>
+          <a href="/tasks">
+            <div class="col-md-6">
+              <div class="about">
+                <h3>**Tasks in development**</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <% else %>
+      <div class="container">
 
+        <!-- <%= image_tag "background2.jpg", class: "bg-img" %> -->
+        <!-- <%= link_to "sing in" , new_user_session_path %> -->
+      </div>
+      <!-- home wrapper -->
+      <div class="home-wrapper">
+        <div class="container">
+          <div class="row">
+            <!-- home content -->
+            <div class="col-md-10 col-md-offset-1">
+              <div class="home-content">
+                <h1 class="white-text">We Are Creative Agency</h1>
+                <p class="white-text">Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere.
+                </p>
+                <!-- <%= link_to "Sign Up", class: "white-btn", new_user_registration_path %> -->
+                <button class="white-btn">Get Started!</button>
+                <button class="main-btn">Learn more</button>
+              </div>
+            </div>
+            <!-- /home content -->
 
-
-  <% else %>
-  <%= link_to "sing in" , new_user_session_path %>
-<% end %>
+          </div>
+        </div>
+      </div>
+      <!-- /home wrapper -->
+    <% end %>
