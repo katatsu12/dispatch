@@ -1,7 +1,6 @@
 require 'news_packer'
 class NotificationsController < ApplicationController
   def index
-    NewsChooser.current_user = current_user.id if user_signed_in?
     if Notification.where(user_id: current_user).count > 0
       @notification = Notification.where(user_id: current_user).last
       @mail = "your current emails is #{@notification.email}"
