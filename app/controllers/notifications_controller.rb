@@ -1,13 +1,13 @@
 require 'news_packer'
 class NotificationsController < ApplicationController
-
   def index
+    NewsChooser.current_user = current_user.id if user_signed_in?
     if Notification.where(user_id: current_user).count > 0
       @notification = Notification.where(user_id: current_user).last
       @mail = "your current emails is #{@notification.email}"
       @choosed_news = NewsPacker.choosed_news(current_user)
     else
-      @mail = "Before using our features write down your email below"
+      @mail = 'Before using our features write down your email below'
     end
   end
 
@@ -19,12 +19,11 @@ class NotificationsController < ApplicationController
     redirect_to notifications_path
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @notification = Notification.where(user_id: current_user).last
-    @notification.update!(email:  params[:notification][:email])
+    @notification.update!(email: params[:notification][:email])
     redirect_to notifications_path
   end
 
@@ -42,10 +41,11 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def about; end
+
   private
-    def notification_params
-      params.permit(:email)
-    end
 
-
+  def notification_params
+    params.permit(:email)
+  end
 end
