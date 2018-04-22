@@ -122,7 +122,7 @@ ul, ol {
 }
 
 .md-padding {
-    padding-top: 120px;
+    padding-top: 20px;
     padding-bottom: 120px;
 }
 
@@ -1718,6 +1718,7 @@ header {
     -webkit-animation-delay: 0.2s;
             animation-delay: 0.2s;
 }
+
 .buttongreen {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -1905,4 +1906,17 @@ header {
 
 .col-md-42 {
     width: 50%;
+}
+
+/*------------------------------------*\
+	News chooser content
+\*------------------------------------*/
+
+.button-in-news-chooser-content {
+  display: flex;
+  padding-left: 10px;
+}
+
+.main-content-news-chooser {
+  margin-left: 25px
 }

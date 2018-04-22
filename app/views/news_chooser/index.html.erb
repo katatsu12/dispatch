@@ -1,27 +1,189 @@
+<!-- Service -->
+<div id="service" class="section md-padding">
 
-<h3><%= @mail %></h3>
-<%= link_to('Change email here' , notifications_path) %>
+  <!-- Container -->
+  <div class="container">
 
-<% if Notification.where(user_id: current_user).count > 0 %>
+    <!-- Row -->
+    <div class="row">
 
-  <% if @subed.send_daily == 1 %>
-    <%= button_to "Daily news", {action: "send_daily"} , class: "buttongreen" %><br>
-  <% else %>
-    <%= button_to "Daily news", {action: "send_daily"} , class: "buttonred" %><br>
-  <% end %>
+      <!-- Section header -->
+      <div class="section-header text-center">
+        <h2 class="title"><%= @mail %></h2>
+      </div>
+      <!-- /Section header -->
 
-  <% if @subed.send_weekly == 1 %>
-    <%= button_to "Weekly news", {action: "send_weekly"} , class: "buttongreen" %><br>
-  <% else %>
-    <%= button_to "Weekly news", {action: "send_weekly"} , class: "buttonred" %><br>
-  <% end %>
+      <% if Notification.where(user_id: current_user).count > 0 %>
 
-  <% @news_labels.each do |i|  %>
-    <%  if @news_types[@index] == '0' %>
-      <%= button_to "#{i}", {action: "#{i}"} , class: "buttonred" %><br>
-    <% else %>
-      <%= button_to "#{i}", {action: "#{i}"} , class: "buttongreen" %><br>
-    <% end %>
-    <% @index += 1 %>
-  <% end %>
-<% end %>
+        <!-- service -->
+        <div class="col-md-4 col-sm-6">
+          <div class="service">
+            <i class="fa fa-business"></i>
+            <div class="main-content-news-chooser">
+              <h3>Business News</h3>
+              <div class="button-in-news-chooser-content">
+                <p>
+                  <% if @news_types[0] == '1' %>
+                    <%= button_to "Us", {action: "us_business"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Us", {action: "us_business"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+                <p>
+                  <% if @news_types[6] == '1' %>
+                    <%= button_to "Ua", {action: "ua_business"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Ua", {action: "ua_business"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /service -->
+
+        <!-- service -->
+        <div class="col-md-4 col-sm-6">
+          <div class="service">
+            <i class="fa fa-smile"></i>
+            <div class="main-content-news-chooser">
+              <h3>Entertainment News</h3>
+              <div class="button-in-news-chooser-content">
+                <p>
+                  <% if @news_types[1] == '1' %>
+                    <%= button_to "Us", {action: "us_entertainment"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Us", {action: "us_entertainment"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+                <p>
+                  <% if @news_types[7] == '1' %>
+                    <%= button_to "Ua", {action: "ua_entertainment"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Ua", {action: "ua_entertainment"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /service -->
+
+
+        <!-- service -->
+        <div class="col-md-4 col-sm-6">
+          <div class="service">
+            <i class="fa fa-heartbeat"></i>
+            <div class="main-content-news-chooser">
+              <h3>Health News</h3>
+              <div class="button-in-news-chooser-content">
+                <p>
+                  <% if @news_types[2] == '1' %>
+                    <%= button_to "Us", {action: "us_health"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Us", {action: "us_health"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+                <p>
+                  <% if @news_types[8] == '1' %>
+                    <%= button_to "Ua", {action: "ua_health"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Ua", {action: "ua_health"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /service -->
+
+        <!-- service -->
+        <div class="col-md-4 col-sm-6">
+          <div class="service">
+            <i class="fa fa-flask"></i>
+            <div class="main-content-news-chooser">
+              <h3>Science News</h3>
+              <div class="button-in-news-chooser-content">
+                <p>
+                  <% if @news_types[3] == '1' %>
+                    <%= button_to "Us", {action: "us_science"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Us", {action: "us_science"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+                <p>
+                  <% if @news_types[9] == '1' %>
+                    <%= button_to "Ua", {action: "ua_science"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Ua", {action: "ua_science"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /service -->
+
+        <!-- service -->
+        <div class="col-md-4 col-sm-6">
+          <div class="service">
+            <i class="fa fa-futbol"></i>
+            <div class="main-content-news-chooser">
+              <h3>Sport News</h3>
+              <div class="button-in-news-chooser-content">
+                <p>
+                  <% if @news_types[4] == '1' %>
+                    <%= button_to "Us", {action: "us_sports"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Us", {action: "us_sports"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+                <p>
+                  <% if @news_types[10] == '1' %>
+                    <%= button_to "Ua", {action: "ua_sports"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Ua", {action: "ua_sports"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /service -->
+
+        <!-- service -->
+        <div class="col-md-4 col-sm-6">
+          <div class="service">
+            <i class="fa fa-shuttle"></i>
+            <div class="main-content-news-chooser">
+              <h3>Technology News</h3>
+              <div class="button-in-news-chooser-content">
+                <p>
+                  <% if @news_types[5] == '1' %>
+                    <%= button_to "Us", {action: "us_technology"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Us", {action: "us_technology"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+                <p>
+                  <% if @news_types[11] == '1' %>
+                    <%= button_to "Ua", {action: "ua_technology"} , class: "buttongreen" %>
+                  <% else %>
+                    <%= button_to "Ua", {action: "ua_technology"} , class: "buttonred" %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /service -->
+
+      <% end %>
+    </div>
+    <!-- /Row -->
+
+  </div>
+  <!-- /Container -->
+
+</div>
+<!-- /Service -->
