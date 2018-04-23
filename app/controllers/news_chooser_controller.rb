@@ -96,8 +96,7 @@ class NewsChooserController < ApplicationController
   def index_info
     news_chooser = NewsChooser.where(user_id: current_user).last
     @news_types = news_chooser.news_types.each_char.to_a
-    @subed_daily = NewsChooser.where(user_id: current_user).last
-    @subed_weekly = NewsChooser.where(user_id: current_user).last
+    @subed = NewsChooser.where(user_id: current_user).last
     if Notification.where(user_id: current_user).count == 0
       @mail = 'currently you dont have emaill. Please change it below'
     else
