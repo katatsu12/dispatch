@@ -1894,14 +1894,13 @@ header {
 
 .weekly-daily-buttons {
   display: flex;
-  width: 22%;
+  width: 21.5%;
   padding: 10px;
   margin: auto;
 }
 
 .buttongreen2 {
   background: rgb(76, 175, 79);
-  /* Green */
   border: none;
   color: white;
   padding: 15px 32px;

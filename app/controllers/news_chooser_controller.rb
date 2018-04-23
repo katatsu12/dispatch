@@ -8,12 +8,10 @@ class NewsChooserController < ApplicationController
 
   def send_daily
     NewsChooser.send_daily_changer(current_user)
-    redirect_to news_chooser_url
   end
 
   def send_weekly
     NewsChooser.send_weekly_changer(current_user)
-    redirect_to news_chooser_url
   end
 
   # sites-----------------------------------------------------------------------
@@ -113,6 +111,5 @@ class NewsChooserController < ApplicationController
 
   def swap(news_id)
     NewsChooser.news_types_changer(news_id , current_user)
-    # redirect_to news_chooser_url
   end
 end
