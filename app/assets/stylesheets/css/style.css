@@ -1720,7 +1720,7 @@ header {
 }
 
 .buttongreen {
-  background-color: #4CAF50; /* Green */
+  background: rgb(76, 175, 79); /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -1730,7 +1730,7 @@ header {
   font-size: 16px;
 }
 .buttonred {
-  background-color: #ff6370 ;
+  background: rgb(255, 99, 111) ;
   border: none;
   color: white;
   padding: 15px 32px;

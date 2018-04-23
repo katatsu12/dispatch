@@ -113,6 +113,6 @@ class NewsChooserController < ApplicationController
 
   def swap(news_id)
     NewsChooser.news_types_changer(news_id , current_user)
-    redirect_to news_chooser_url
+    # redirect_to news_chooser_url
   end
 end

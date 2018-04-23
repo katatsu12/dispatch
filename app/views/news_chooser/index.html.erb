@@ -1,3 +1,27 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $(".buttongreen").click(function(){
+        // $(this).removeClass( "buttongreen" ).addClass("buttonred" );
+        if ( this.style.background  !== "rgb(255, 99, 111)" ) {
+          this.style.background   = "rgb(255, 99, 111)";
+        } else {
+          this.style.background  = "rgb(76, 175, 79)";
+        }
+    });
+    $(".buttonred").click(function(){
+        // $(this).removeClass( "buttonred" ).addClass("buttongreen" );
+        if ( this.style.background  !== "rgb(76, 175, 79)" ) {
+          this.style.background   = "rgb(76, 175, 79)";
+        } else {
+          this.style.background  = "rgb(255, 99, 111)";
+        }
+    });
+  });
+</script>
+</head>
+
 <!-- Service -->
 <div id="service" class="section md-padding">
 
@@ -6,8 +30,7 @@
 
     <!-- Row -->
     <div class="row">
-
-      <!-- Section header -->
+        <!-- Section header -->
       <div class="section-header text-center">
         <h2 class="title"><%= @mail %></h2>
       </div>
