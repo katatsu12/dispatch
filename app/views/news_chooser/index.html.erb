@@ -216,6 +216,22 @@
     </div>
     <!-- /Row -->
 
+    <div class="weekly-daily-content">
+      <h3>Take a news:</h3>
+      <div class="weekly-daily-buttons">
+        <% if @subed.send_daily == 1 %>
+          <%= button_to "Daily", {action: "send_daily"}, class: "buttongreen" %>
+        <% else %>
+          <%= button_to "Daily", {action: "send_daily"}, class: "buttonred" %>
+        <% end %>
+
+        <% if @subed.send_weekly == 1 %>
+          <%= button_to "Weekly", {action: "send_weekly"}, class: "buttongreen" %>
+        <% else %>
+          <%= button_to "Weekly", {action: "send_weekly"}, class: "buttonred" %>
+        <% end %>
+      </div>
+    </div>
   </div>
   <!-- /Container -->
 
