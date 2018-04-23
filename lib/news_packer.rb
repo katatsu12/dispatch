@@ -7,24 +7,26 @@ module NewsPacker
     news_chooser = NewsChooser.where(user_id: current_user).last
     news_types = news_chooser.news_types.each_char.to_a
     index = 0
-    # @params_hash = Hash[  0 => Hash['us' , 'business' ] ,1 => Hash['us' , 'entertainment' ] ,
-    #                       2 => Hash['us' , 'health' ] ,3 => Hash['us' , 'science' ] ,
-    #                       4 => Hash['us' , 'sports' ] ,5 => Hash['us' , 'technology' ] ,
-    #                       6 => Hash['us' , 'business' ] ,7 => Hash['us' , 'entertainment' ] ,
-    #                       8 => Hash['us' , 'health' ] ,9 => Hash['us' , 'science' ] ,
-    #                       10 => Hash['us' , 'sports' ] ,11 => Hash['us' , 'technology' ]]
+
     params_arr = [ ['us' , 'business' ], ['us' , 'entertainment' ] ,
                     ['us' , 'health' ] , ['us' , 'science' ] ,
                     ['us' , 'sports' ] , ['us' , 'technology' ] ,
                     ['ua' , 'business' ] , ['ua' , 'entertainment' ] ,
                     ['ua' , 'health' ] , ['ua' , 'science' ] ,
                     ['ua' , 'sports' ] , ['ua' , 'technology' ]  ]
+    statistics_rows = [ 'us_business' , 'us_entertainment'  ,
+                        'us_health'  , 'us_science'  ,
+                        'us_sports'  , 'us_technology'  ,
+                        'ua_business'  , 'ua_entertainment'  ,
+                        'ua_health'  , 'ua_science'  ,
+                        'ua_sports'  , 'ua_technology'   ]
 
     arr_with_news = []#Array  with packed news
+
     news_types.each do |i|
       if i == "1"
+        # -----------Pack news to array---------------------
         news_taker(params_arr[index][0] ,params_arr[index][1] ) #take url with news
-
         req = open(@url)
         response_body = req.read
         a = JSON.parse(response_body)
@@ -32,6 +34,11 @@ module NewsPacker
         arr_with_news << b[2][1][0]
         arr_with_news << b[2][1][1]
         arr_with_news << b[2][1][2]
+        #------------Statistic------------------------------
+        news_type = Statistic.find(index + 1)
+        inc =  news_type.sended_times + 1
+        news_type.update(:sended_times => inc)
+
         index += 1
       else
         index += 1
@@ -61,7 +68,7 @@ module NewsPacker
                     'ua sports'  , 'ua technology'   ]
 
     arr_with_choosed_news = "you are subscrivbed to this news :"
-    
+
     news_types.each do |i|
       if i == "1"
         if arr_with_choosed_news != "you are subscrivbed to this news :"

@@ -38,6 +38,17 @@
 
       <% if Notification.where(user_id: current_user).count > 0 %>
 
+        <% if @subed_daily.send_daily == 1 %>
+          <%= button_to "subed daily", {action: "send_daily"} , class: "buttongreen" %>
+        <% else %>
+          <%= button_to "subed daily", {action: "send_daily"} , class: "buttonred" %>
+        <% end %>
+
+        <% if @subed_weekly.send_weekly == 1 %>
+          <%= button_to "subed weekly", {action: "send_weekly"} , class: "buttongreen" %>
+        <% else %>
+          <%= button_to "subed weekly", {action: "send_weekly"} , class: "buttonred" %>
+        <% end %>
         <!-- service -->
         <div class="col-md-4 col-sm-6">
           <div class="service">

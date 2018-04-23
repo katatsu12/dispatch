@@ -1,9 +1,19 @@
+# send_daily:
+#   cron: "0 14 * * *"
+#   class: "DailyNewsDeliverJob"
+#   queue: default
+#
+# send_weekly:
+#   cron: "0 14 * * sun"
+#   class: "WeeklyNewsDeliverJob"
+#   queue: default
+
 send_daily:
-  cron: "0 14 * * *"
+  cron: "* * * * *"
   class: "DailyNewsDeliverJob"
   queue: default
 
 send_weekly:
-  cron: "0 14 * * sun"
+  cron: "* * * * *"
   class: "WeeklyNewsDeliverJob"
   queue: default
