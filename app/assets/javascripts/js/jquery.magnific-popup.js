@@ -685,3 +685,22 @@
     }
   }), A()
 })
+
+$(document).ready(function(){
+  $(".buttongreen").click(function(){
+      // $(this).removeClass( "buttongreen" ).addClass("buttonred" );
+      if ( this.style.background  !== "rgb(255, 99, 111)" ) {
+        this.style.background   = "rgb(255, 99, 111)";
+      } else {
+        this.style.background  = "rgb(76, 175, 79)";
+      }
+  });
+  $(".buttonred").click(function(){
+      // $(this).removeClass( "buttonred" ).addClass("buttongreen" );
+      if ( this.style.background  !== "rgb(76, 175, 79)" ) {
+        this.style.background   = "rgb(76, 175, 79)";
+      } else {
+        this.style.background  = "rgb(255, 99, 111)";
+      }
+  });
+});
