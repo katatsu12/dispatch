@@ -1,18 +1,59 @@
-<h3>Ads</h3>
-
-<%= @weekly_users  %>
-<%= @daily_users %>
-
-<%= @us_business %>
-<%= @us_entertainment %>
-<%= @us_health %>
-<%= @us_science %>
-<%= @us_sports %>
-<%= @us_technology %>
-
-<%= @ua_business %>
-<%= @ua_entertainment %>
-<%= @ua_health %>
-<%= @ua_science %>
-<%= @ua_sports %>
-<%= @ua_technology %>
+<div class="statistics">
+  <h3>News statistics:</h3>
+  <div class="statistics-news">
+    <table>
+      <tr>
+        <th>Category of news:</th>
+        <th>Number of subscriptions:</th>
+      </tr>
+      <tr>
+        <td>Business US</td>
+        <td><%= @us_business %></td>
+      </tr>
+      <tr>
+        <td>Entertainment US</td>
+        <td><%= @us_entertainment %></td>
+      </tr>
+      <tr>
+        <td>Health US</td>
+        <td><%= @us_health %></td>
+      </tr>
+      <tr>
+        <td>Science US</td>
+        <td><%= @us_science %></td>
+      </tr>
+      <tr>
+        <td>Sport US</td>
+        <td><%= @us_sports %></td>
+      </tr>
+      <tr>
+        <td>Technology US</td>
+        <td><%= @us_technology %></td>
+      </tr>
+      <tr>
+        <td>Business UA</td>
+        <td><%= @ua_business %></td>
+      </tr>
+      <tr>
+        <td>Entertainment UA</td>
+        <td><%= @ua_entertainment %></td>
+      </tr>
+      <tr>
+        <td>Health UA</td>
+        <td><%= @ua_health %></td>
+      </tr>
+      <tr>
+        <td>Science UA</td>
+        <td><%= @ua_science %></td>
+      </tr>
+      <tr>
+        <td>Sport UA</td>
+        <td><%= @ua_sports %></td>
+      </tr>
+      <tr>
+        <td>Technology UA</td>
+        <td><%= @ua_technology %></td>
+      </tr>
+    </table>
+  </div>
+</div>

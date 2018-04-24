@@ -1923,3 +1923,34 @@ header {
   font-size: 16px;
   margin-right: 20px;
 }
+
+
+/*------------------------------------*\
+	About page
+\*------------------------------------*/
+
+.statistics {
+  text-align: center;
+}
+
+.statistics-news {
+
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin: auto;
+}
+
+td, th {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 8px;
+    color: black;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
