@@ -3,7 +3,7 @@ require 'news_packer'
 module NewsPacker
 
 
-  def self.news_packer(current_user)
+  def self.news_packer_daily(current_user) #create array with daily news
     news_chooser = NewsChooser.where(user_id: current_user).last
     news_types = news_chooser.news_types.each_char.to_a
     index = 0
@@ -14,19 +14,57 @@ module NewsPacker
                     ['ua' , 'business' ] , ['ua' , 'entertainment' ] ,
                     ['ua' , 'health' ] , ['ua' , 'science' ] ,
                     ['ua' , 'sports' ] , ['ua' , 'technology' ]  ]
-    statistics_rows = [ 'us_business' , 'us_entertainment'  ,
-                        'us_health'  , 'us_science'  ,
-                        'us_sports'  , 'us_technology'  ,
-                        'ua_business'  , 'ua_entertainment'  ,
-                        'ua_health'  , 'ua_science'  ,
-                        'ua_sports'  , 'ua_technology'   ]
+
 
     arr_with_news = []#Array  with packed news
 
     news_types.each do |i|
       if i == "1"
         # -----------Pack news to array---------------------
-        news_taker(params_arr[index][0] ,params_arr[index][1] ) #take url with news
+        news_taker_daily(params_arr[index][0] ,params_arr[index][1] ) #take url with news
+        req = open(@url)
+        response_body = req.read
+        a = JSON.parse(response_body)
+        b = a.to_a
+
+        arr_with_news << b[2][1][0]
+        arr_with_news << b[2][1][1]
+        arr_with_news << b[2][1][2]
+        #------------Statistic------------------------------
+        news_type = Statistic.find(index + 1)
+        inc =  news_type.sended_times + 1
+        news_type.update(:sended_times => inc)
+
+        index += 1
+      else
+        index += 1
+      end
+
+    end
+    return arr_with_news
+  end
+
+
+
+  def self.news_packer_weekly(current_user) #create array with weekly news
+    news_chooser = NewsChooser.where(user_id: current_user).last
+    news_types = news_chooser.news_types.each_char.to_a
+    index = 0
+
+    params_arr = [ ['en' , 'business' ], ['en' , 'entertainment' ] ,
+                    ['en' , 'health' ] , ['en' , 'science' ] ,
+                    ['en' , 'sports' ] , ['en' , 'technology' ] ,
+                    ['ru' , 'business' ] , ['ru' , 'entertainment' ] ,
+                    ['ru' , 'health' ] , ['ru' , 'science' ] ,
+                    ['ru' , 'sports' ] , ['ru' , 'technology' ]  ]
+
+
+    arr_with_news = []#Array  with packed news
+
+    news_types.each do |i|
+      if i == "1"
+        # -----------Pack news to array---------------------
+        news_taker_weekly(params_arr[index][0] ,params_arr[index][1] ) #take url with news
         req = open(@url)
         response_body = req.read
         a = JSON.parse(response_body)
@@ -48,14 +86,30 @@ module NewsPacker
     return arr_with_news
   end
 
-  def self.news_taker(country , category) # ua news with params
+
+  def self.news_taker_daily(country , category)
     @url = 'https://newsapi.org/v2/top-headlines?'\
           "country=#{country}&"\
           "category=#{category}&"\
           "apiKey=#{Rails.application.secrets[:newsapi]}"
   end
 
-  def self.choosed_news(current_user)
+  def self.news_taker_weekly(country , category)
+    date_now = Date.today
+    week_ago = date_now - 7
+    date_now_string = date_now.strftime("%Y-%m-%d")
+    week_ago_string = week_ago.strftime("%Y-%m-%d")
+    @url = 'https://newsapi.org/v2/everything?'\
+          "q=#{category}&"\
+          "from=#{week_ago_string}&"\
+          "to=#{date_now_string}&"\
+          "language=#{country}&"\
+          "sortBy=popularity&"\
+          "apiKey=#{Rails.application.secrets[:newsapi]}"
+  end
+
+
+  def self.choosed_news(current_user) #main page subscribtion statistic
     news_chooser = NewsChooser.where(user_id: current_user).last
     news_types = news_chooser.news_types.each_char.to_a
     index = 0
