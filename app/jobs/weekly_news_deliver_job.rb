@@ -4,7 +4,7 @@ class WeeklyNewsDeliverJob < ApplicationJob
   def perform
     users_for_send = NewsChooser.where(:send_weekly => 1)
     users_for_send.each do |u|
-      NewsMailer.index(u.user_id).deliver
+      NewsMailer.send_weekly(u.user_id).deliver
     end
   end
 end
