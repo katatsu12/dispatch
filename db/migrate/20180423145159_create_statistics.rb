@@ -19,6 +19,6 @@ class CreateStatistics < ActiveRecord::Migration[5.1]
     Statistic.create(news_type:"ua_science" , sended_times:"0" , current_subs: "0")
     Statistic.create(news_type:"ua_sports" , sended_times:"0" , current_subs: "0")
     Statistic.create(news_type:"ua_technology" , sended_times:"0" , current_subs: "0")
-    AdminUser.create(email: "admin@admin.admin" , password: "admin")
+    AdminUser.create(email: "admin@admin.com" , password: "admin")
   end
 end
