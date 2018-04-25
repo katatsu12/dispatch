@@ -1,12 +1,16 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  
+
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.where(user_id: current_user).where(sended: 0).order(:time)
-    @archived_tasks = Task.where(user_id: current_user).where(sended: 1).order(:time)
+    if Notification.where(user_id: current_user).count == 0
+      redirect_to root_path
+    else
+      @tasks = Task.where(user_id: current_user).where(sended: 0).order(:time)
+      @archived_tasks = Task.where(user_id: current_user).where(sended: 1).order(:time)
+    end
   end
 
 

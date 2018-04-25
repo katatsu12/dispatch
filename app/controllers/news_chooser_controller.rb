@@ -3,7 +3,11 @@ class NewsChooserController < ApplicationController
 
 
   def index
-    index_info
+    if Notification.where(user_id: current_user).count == 0
+      redirect_to root_path
+    else
+      index_info
+    end
   end
 
   def send_daily
