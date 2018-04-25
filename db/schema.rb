@@ -51,7 +51,8 @@ ActiveRecord::Schema.define(version: 20180423145159) do
   create_table "statistics", force: :cascade do |t|
     t.string "news_type"
     t.integer "sended_times"
-    t.integer "current_subs"
+    t.integer "current_daily_subs"
+    t.integer "current_weekly_subs"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

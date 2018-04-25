@@ -17,6 +17,7 @@ module NewsPacker
 
 
     arr_with_news = []#Array  with packed news
+    @news_labels = []
 
     news_types.each do |i|
       if i == "1"
@@ -27,6 +28,7 @@ module NewsPacker
         a = JSON.parse(response_body)
         b = a.to_a
 
+        @news_labels <<  params_arr[index][1] + ':'
         arr_with_news << b[2][1][0]
         arr_with_news << b[2][1][1]
         arr_with_news << b[2][1][2]
@@ -35,8 +37,8 @@ module NewsPacker
         inc =  news_type.sended_times + 1
         news_type.update(:sended_times => inc)
         #------------Statistic current----------------------
-        inc =  news_type.current_subs + 1
-        news_type.update(:current_subs => inc)
+        inc =  news_type.current_daily_subs + 1
+        news_type.update(:current_daily_subs => inc)
 
         index += 1
       else
@@ -46,8 +48,6 @@ module NewsPacker
     end
     return arr_with_news
   end
-
-
 
   def self.news_packer_weekly(current_user) #create array with weekly news
     news_chooser = NewsChooser.where(user_id: current_user).last
@@ -63,6 +63,7 @@ module NewsPacker
 
 
     arr_with_news = []#Array  with packed news
+    @news_labels = []
 
     news_types.each do |i|
       if i == "1"
@@ -72,13 +73,18 @@ module NewsPacker
         response_body = req.read
         a = JSON.parse(response_body)
         b = a.to_a
+
+        @news_labels <<  params_arr[index][1] + ':'
         arr_with_news << b[2][1][0]
         arr_with_news << b[2][1][1]
         arr_with_news << b[2][1][2]
         #------------Statistic------------------------------
         news_type = Statistic.find(index + 1)
         inc =  news_type.sended_times + 1
-        news_type.update(sended_times: inc)
+        news_type.update(:sended_times => inc)
+        #------------Statistic current----------------------
+        inc =  news_type.current_weekly_subs + 1
+        news_type.update(:current_weekly_subs => inc)
 
         index += 1
       else
@@ -89,6 +95,9 @@ module NewsPacker
     return arr_with_news
   end
 
+  def self.get_labels
+    return @news_labels
+  end
 
   def self.news_taker_daily(country , category)
     @url = 'https://newsapi.org/v2/top-headlines?'\
