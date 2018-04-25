@@ -37,8 +37,8 @@ module NewsPacker
         inc =  news_type.sended_times + 1
         news_type.update(:sended_times => inc)
         #------------Statistic current----------------------
-        inc =  news_type.current_subs + 1
-        news_type.update(:current_subs => inc)
+        inc =  news_type.current_daily_subs + 1
+        news_type.update(:current_daily_subs => inc)
 
         index += 1
       else
@@ -48,8 +48,6 @@ module NewsPacker
     end
     return arr_with_news
   end
-
-
 
   def self.news_packer_weekly(current_user) #create array with weekly news
     news_chooser = NewsChooser.where(user_id: current_user).last
@@ -84,6 +82,9 @@ module NewsPacker
         news_type = Statistic.find(index + 1)
         inc =  news_type.sended_times + 1
         news_type.update(:sended_times => inc)
+        #------------Statistic current----------------------
+        inc =  news_type.current_weekly_subs + 1
+        news_type.update(:current_weekly_subs => inc)
 
         index += 1
       else
