@@ -1,10 +1,13 @@
+<h4></h4>
+
 <div class="statistics">
   <h3>News statistics:</h3>
   <div class="statistics-news">
     <table>
       <tr>
         <th>Category of news:</th>
-        <th>Number of subscriptions:</th>
+        <th>Sent mail:</th>
+        <th>Current subscriptions to news:</th>
       </tr>
       <tr>
         <td>Business US</td>
@@ -55,5 +58,13 @@
         <td><%= @ua_technology %></td>
       </tr>
     </table>
+
+    <div class="">
+      <p>Quantity of users which subscribed to top weekly news: <%= @weekly_users %></p>
+
+      <p>Quantity of users which subscribed to top daily news: <%= @daily_users %></p>
+    </div>
+
+
   </div>
 </div>

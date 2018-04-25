@@ -10,18 +10,18 @@
   </head>
 
   <body>
-
-                <% @arr_with_news.each do |i| %>
-                  <div class="media">
-                    <img class="mr-3" src="<%= i['urlToImage'] %>" alt="Generic placeholder image" height="64" width="70">
-                    <div class="media-body">
-                      <a href="<%= i["url"] %>">
-                        <h4 class="mt-0"><%= i["title"] %></h4>
-                      </a>
-                      <h7><%= i["description"] %></h7>
-                    </div>
-                  </div>
-                  <br>
-                  <% end %>
-                </body>
-              </html>
+    <% @arr_with_news.each do |i| %>
+    <div class="media">
+      <h3></h3>
+      <img class="mr-3" src="<%= i['urlToImage'] %>" alt="Generic placeholder image" height="64" width="70">
+      <div class="media-body">
+        <a href="<%= i["url"] %>">
+          <h4 class="mt-0"><%= i["title"] %></h4>
+        </a>
+        <h7><%= i["description"] %></h7>
+      </div>
+    </div>
+    <br>
+    <% end %>
+  </body>
+</html>

@@ -75,7 +75,7 @@ module NewsPacker
         #------------Statistic------------------------------
         news_type = Statistic.find(index + 1)
         inc =  news_type.sended_times + 1
-        news_type.update(:sended_times => inc)
+        news_type.update(sended_times: inc)
 
         index += 1
       else
