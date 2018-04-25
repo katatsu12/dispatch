@@ -12,6 +12,10 @@
   <body>
 
                 <% @arr_with_news.each do |i| %>
+                  <% if @index == 0 or @index % 3 == 0%>
+                    <%= @news_labels[@index_each_3] %>
+                    <% @index_each_3 = @index_each_3 + 1 %>
+                  <% end %>
                   <div class="media">
                     <img class="mr-3" src="<%= i['urlToImage'] %>" alt="Generic placeholder image" height="64" width="70">
                     <div class="media-body">
@@ -22,6 +26,7 @@
                     </div>
                   </div>
                   <br>
+                  <% @index = @index + 1 %>
                   <% end %>
                 </body>
               </html>

@@ -17,6 +17,7 @@ module NewsPacker
 
 
     arr_with_news = []#Array  with packed news
+    @news_labels = []
 
     news_types.each do |i|
       if i == "1"
@@ -27,6 +28,7 @@ module NewsPacker
         a = JSON.parse(response_body)
         b = a.to_a
 
+        @news_labels <<  params_arr[index][1] + ':'
         arr_with_news << b[2][1][0]
         arr_with_news << b[2][1][1]
         arr_with_news << b[2][1][2]
@@ -63,6 +65,7 @@ module NewsPacker
 
 
     arr_with_news = []#Array  with packed news
+    @news_labels = []
 
     news_types.each do |i|
       if i == "1"
@@ -72,6 +75,8 @@ module NewsPacker
         response_body = req.read
         a = JSON.parse(response_body)
         b = a.to_a
+
+        @news_labels <<  params_arr[index][1] + ':'
         arr_with_news << b[2][1][0]
         arr_with_news << b[2][1][1]
         arr_with_news << b[2][1][2]
@@ -89,6 +94,9 @@ module NewsPacker
     return arr_with_news
   end
 
+  def self.get_labels
+    return @news_labels
+  end
 
   def self.news_taker_daily(country , category)
     @url = 'https://newsapi.org/v2/top-headlines?'\
