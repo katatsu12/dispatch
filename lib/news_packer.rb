@@ -34,6 +34,9 @@ module NewsPacker
         news_type = Statistic.find(index + 1)
         inc =  news_type.sended_times + 1
         news_type.update(:sended_times => inc)
+        #------------Statistic current----------------------
+        inc =  news_type.current_subs + 1
+        news_type.update(:current_subs => inc)
 
         index += 1
       else

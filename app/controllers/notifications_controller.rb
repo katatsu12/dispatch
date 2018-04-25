@@ -41,22 +41,21 @@ class NotificationsController < ApplicationController
   end
 
   def about
-    @weekly_users = NewsChooser.where(send_weekly: 1).count
-    @daily_users = NewsChooser.where(send_daily: 1).count
+    @users = User.count
+    
+    @us_business = Statistic.find_by(news_type:"us_business")
+    @us_entertainment = Statistic.find_by(news_type:"us_entertainment")
+    @us_health = Statistic.find_by(news_type:"us_health")
+    @us_science = Statistic.find_by(news_type:"us_science" )
+    @us_sports = Statistic.find_by(news_type:"us_sports")
+    @us_technology = Statistic.find_by(news_type:"us_technology")
 
-    @us_business = Statistic.find_by(news_type:"us_business").sended_times
-    @us_entertainment = Statistic.find_by(news_type:"us_entertainment").sended_times
-    @us_health = Statistic.find_by(news_type:"us_health").sended_times
-    @us_science = Statistic.find_by(news_type:"us_science" ).sended_times
-    @us_sports = Statistic.find_by(news_type:"us_sports").sended_times
-    @us_technology = Statistic.find_by(news_type:"us_technology").sended_times
-
-    @ua_business = Statistic.find_by(news_type:"ua_business").sended_times
-    @ua_entertainment = Statistic.find_by(news_type:"ua_entertainment" ).sended_times
-    @ua_health = Statistic.find_by(news_type:"ua_health").sended_times
-    @ua_science = Statistic.find_by(news_type:"ua_science").sended_times
-    @ua_sports = Statistic.find_by(news_type:"ua_sports").sended_times
-    @ua_technology = Statistic.find_by(news_type:"ua_technology").sended_times
+    @ua_business = Statistic.find_by(news_type:"ua_business")
+    @ua_entertainment = Statistic.find_by(news_type:"ua_entertainment" )
+    @ua_health = Statistic.find_by(news_type:"ua_health")
+    @ua_science = Statistic.find_by(news_type:"ua_science")
+    @ua_sports = Statistic.find_by(news_type:"ua_sports")
+    @ua_technology = Statistic.find_by(news_type:"ua_technology")
   end
 
   private
