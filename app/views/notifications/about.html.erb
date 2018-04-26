@@ -1,6 +1,51 @@
-<h4></h4>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides">
+    <%= image_tag("ScrinDaily.png", :style => "width:100%") %>
+  </div>
+
+  <div class="mySlides">
+    <%= image_tag("ScrinWeekly.png", :style => "width:100%") %>
+  </div>
+
+  <div class="mySlides">
+    <%= image_tag("ScrinTatsks.png", :style => "width:100%") %>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="statistics">
+  <h3>News Dispatch:</h3>
+  <p>
+    If you subscriptions to our Daily news every day you will get top 3 news from category which you choose on
+    <a href="/news_chooser">News page</a>
+    but in other way you can choose Weekly news and in this case you will get top news in all week in sunday. You can't choose two ways (but you can try:))
+  </p>
+
   <h3>News statistics:</h3>
   <div class="statistics-news">
     <table>
@@ -12,69 +57,69 @@
       <tr>
         <td>Business US</td>
         <td><%= @us_business.sended_times %></td>
-        <td><%= @us_business.current_subs %></td>
+        <td><%= @us_business.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Entertainment US</td>
         <td><%= @us_entertainment.sended_times %></td>
-        <td><%= @us_entertainment.current_subs %></td>
+        <td><%= @us_entertainment.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Health US</td>
         <td><%= @us_health.sended_times %></td>
-        <td><%= @us_health.current_subs %></td>
+        <td><%= @us_health.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Science US</td>
         <td><%= @us_science.sended_times %></td>
-        <td><%= @us_science.current_subs %></td>
+        <td><%= @us_science.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Sport US</td>
         <td><%= @us_sports.sended_times %></td>
-        <td><%= @us_sports.current_subs %></td>
+        <td><%= @us_sports.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Technology US</td>
         <td><%= @us_technology.sended_times %></td>
-        <td><%= @us_technology.current_subs %></td>
+        <td><%= @us_technology.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Business UA</td>
         <td><%= @ua_business.sended_times %></td>
-        <td><%= @ua_business.current_subs %></td>
+        <td><%= @ua_business.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Entertainment UA</td>
         <td><%= @ua_entertainment.sended_times %></td>
-        <td><%= @ua_entertainment.current_subs %></td>
+        <td><%= @ua_entertainment.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Health UA</td>
         <td><%= @ua_health.sended_times %></td>
-        <td><%= @ua_health.current_subs %></td>
+        <td><%= @ua_health.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Science UA</td>
         <td><%= @ua_science.sended_times %></td>
-        <td><%= @ua_science.current_subs %></td>
+        <td><%= @ua_science.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Sport UA</td>
         <td><%= @ua_sports.sended_times %></td>
-        <td><%= @ua_sports.current_subs %></td>
+        <td><%= @ua_sports.current_daily_subs %></td>
       </tr>
       <tr>
         <td>Technology UA</td>
         <td><%= @ua_technology.sended_times %></td>
-        <td><%= @ua_technology.current_subs %></td>
+        <td><%= @ua_technology.current_daily_subs %></td>
       </tr>
     </table>
 
     <div class="">
-      <p>Quantity of users which registrated on our application: <%= @users %></p>
+      <p>Quantity of users which registrated on our application:
+        <%= @users %></p>
     </div>
-
 
   </div>
 </div>
