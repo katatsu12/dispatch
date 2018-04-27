@@ -147,7 +147,7 @@ module NewsPacker
       end
     end
 
-    if arr_with_choosed_news == "you are subscrivbed to this news :"
+    if arr_with_choosed_news == "you are subscrivbed to this news: "
       arr_with_choosed_news = "you are not subscrivbed to news"
     end
     return arr_with_choosed_news
