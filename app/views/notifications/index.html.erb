@@ -29,8 +29,22 @@
           <a href="/tasks">
             <div class="col-md-6">
               <div class="about">
-                <h3>**Tasks in development**</h3>
-                <h3>You don't have tasks</h3>
+                <h3>Tasks</h3>
+                <% if @nearest_tasks.is_a? String %>
+                  <h3><%= @nearest_tasks %></h3>
+                <% else %>
+                <h4>Your upcoming tasks:</h4>
+                <table>
+                  <% @nearest_tasks.each do |task|%>
+                    <tr>
+                      <td width="377"><%= task.title[0..10] %></td>
+                      <td width="377"><%= task.text[0..10]  %></td>
+                    </tr>
+
+
+                  <% end %>
+                </table>
+                <% end %>
               </div>
             </div>
           </a>
