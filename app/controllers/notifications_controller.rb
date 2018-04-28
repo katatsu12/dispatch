@@ -1,10 +1,12 @@
 require 'news_packer'
+require 'task_packer'
 class NotificationsController < ApplicationController
   def index
     if Notification.where(user_id: current_user).count > 0
       @notification = Notification.where(user_id: current_user).last
       @mail = "your current emails is #{@notification.email}"
-      @choosed_news = NewsPacker.choosed_news(current_user)
+      @choosed_news = NewsPacker.choosed_news(current_user)# String with choosed news
+      @nearest_tasks = TaskPacker.nearest_tasks(current_user)# AR with 3 nearest Tasks
     else
       @mail = 'Before using our features write down your email below'
     end

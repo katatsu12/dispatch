@@ -10,6 +10,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w[ css/magnific-popup.css css/style.css css/bootstrap.min.css
                                                   css/font-awesome.min.css css/owl.carousel.css css/owl.theme.default.css
                                                   css/owl.theme.css]
+Rails.application.config.assets.precompile += %w[ckeditor/*]
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

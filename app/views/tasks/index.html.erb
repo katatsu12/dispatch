@@ -1,53 +1,63 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tasks</h1>
-<%= link_to 'New Task', new_task_path %>
+<div align='center' >
+  <h1 align='center'>Tasks</h1>
 
-<table border="1" cellpadding="5" width="1024">
-  <thead>
-    <tr align="center" >
-      <th>Title</th>
-      <th>Text</th>
-      <th>Time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% if Task.where(user_id: current_user , sended: 0).count == 0 && Task.where(user_id: current_user , sended: 1).count == 0%>
+    <h3>You haven't create tasks before. You can do it by button below</h3>
+  <% end %>
 
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td width="377"><%= task.title[0..30] %></td>
-        <td width="377"><%= task.text[0..30]  %></td>
-        <td width="200"><%= task.time %></td>
-        <td width="70"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <%= link_to 'New Task', new_task_path , class: "btn btn-primary btn-lg"%>
+
+  <% if Task.where(user_id: current_user , sended: 0).count > 0%>
+  <br>
+  <table border="1" cellpadding="5" width="1044">
+    <thead>
+      <tr align="center" >
+        <th>Title</th>
+        <th>Text</th>
+        <th>Time</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td width="377"><%= task.title[0..30] %></td>
+          <td width="377"><%= task.text[0..30]  %></td>
+          <td width="220"><%= task.time %></td>
+          <td width="70"><%= link_to 'Destroy', task , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+  <br>
 
 
-
-<h1>Archived Tasks</h1>
-<table border="1" cellpadding="5" width="1024">
-  <thead>
-    <tr align="center">
-      <th>Title</th>
-      <th>Text</th>
-      <th>Time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @archived_tasks.each do |task| %>
-      <tr>
-        <td width="377"><%= task.title[0..30] %></td>
-        <td width="377"><%= task.text[0..30]  %></td>
-        <td width="200"><%= task.time %></td>
-        <td width="70"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% if Task.where(user_id: current_user , sended: 1).count > 0%>
+  <h1>Archived Tasks</h1>
+  <table border="1" cellpadding="5" width="1044">
+    <thead>
+      <tr align="center">
+        <th>Title</th>
+        <th>Text</th>
+        <th>Time</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @archived_tasks.each do |task| %>
+        <tr>
+          <td width="377"><%= task.title[0..30] %></td>
+          <td width="377"><%= task.text[0..30]  %></td>
+          <td width="220"><%= task.time %></td>
+          <td width="70"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>
