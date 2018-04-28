@@ -133,11 +133,11 @@ module NewsPacker
                     'ua health'  , 'ua science'  ,
                     'ua sports'  , 'ua technology'   ]
 
-    arr_with_choosed_news = "you are subscrivbed to this news :"
+    arr_with_choosed_news = "you are subscrivbed to this news: "
 
     news_types.each do |i|
       if i == "1"
-        if arr_with_choosed_news != "you are subscrivbed to this news :"
+        if arr_with_choosed_news != "you are subscrivbed to this news: "
           arr_with_choosed_news << ", "
         end
         arr_with_choosed_news << news_arr[index].to_s
