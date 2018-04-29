@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :news_choosers
   has_many :tasks
+  has_many :taged_news
 
 
   after_create do

@@ -153,4 +153,25 @@ module NewsPacker
     return arr_with_choosed_news
   end
 
+  def self.taged_news_daily_taker(category)
+    @url = 'https://newsapi.org/v2/everything?'\
+          "q=#{category}&"\
+          "language=en&"\
+          "sortBy=popularity&"\
+          "apiKey=#{Rails.application.secrets[:newsapi]}"
+  end
+
+  def self.taged_news_weekly_taker(category)
+    date_now = Date.today
+    week_ago = date_now - 7
+    date_now_string = date_now.strftime("%Y-%m-%d")
+    week_ago_string = week_ago.strftime("%Y-%m-%d")
+    @url = 'https://newsapi.org/v2/everything?'\
+          "q=#{category}&"\
+          "from=#{week_ago_string}&"\
+          "to=#{date_now_string}&"\
+          "language=#{country}&"\
+          "sortBy=popularity&"\
+          "apiKey=#{Rails.application.secrets[:newsapi]}"
+  end
 end
