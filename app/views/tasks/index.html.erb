@@ -1,4 +1,8 @@
-
+<style media="screen">
+ td{
+    height: 36px;
+  }
+</style>
 <p id="notice"><%= notice %></p>
 
 <div align='center' >
@@ -19,17 +23,17 @@
     <col width=70>
     <thead>
       <tr align="center" >
-        <th>Title</th>
-        <th>Text</th>
-        <th>Time</th>
-        <th></th>
+        <td >Title</td>
+        <td>Text</td>
+        <td>Time</td>
+        <td></td>
       </tr>
     </thead>
 
     <tbody>
       <% @tasks.each do |task| %>
         <tr>
-          <td><%= raw task.title[0..30] %></td>
+          <td> <%= raw task.title[0..30] %></td>
           <td  style="display:block; overflow:auto; overflow-y:hidden; height: 36px;"><%= raw task.text %></td>
           <td><%= task.time %></td>
           <td><%= link_to 'Destroy', task , method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -50,10 +54,10 @@
     <col width=70>
     <thead>
       <tr align="center">
-        <th>Title</th>
-        <th>Text</th>
-        <th>Time</th>
-        <th></th>
+        <td>Title</td>
+        <td>Text</td>
+        <td>Time</td>
+        <td></td>
       </tr>
     </thead>
 
@@ -61,7 +65,7 @@
       <% @archived_tasks.each do |task| %>
         <tr>
           <td ><%= raw task.title[0..30] %></td>
-          <td style="display:block; overflow:auto; overflow-y:hidden; height: 36px;"><%= raw task.text %></td>
+          <td style="display:block; overflow:auto; overflow-y:hidden;"><%= raw task.text %></td>
           <td ><%= task.time %></td>
           <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
