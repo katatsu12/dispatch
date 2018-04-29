@@ -33,8 +33,8 @@
                 <table>
                   <% @nearest_tasks.each do |task|%>
                     <tr>
-                      <td width="377"><%= task.title[0..10] %></td>
-                      <td width="377"><%= task.text[0..10]  %></td>
+                      <td width="377"><%= raw task.title[0..10] %></td>
+                      <td width="377"><%= raw task.text[0..10]  %></td>
                     </tr>
 
 

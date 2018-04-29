@@ -24,8 +24,8 @@
     <tbody>
       <% @tasks.each do |task| %>
         <tr>
-          <td width="377"><%= task.title[0..30] %></td>
-          <td width="377"><%= task.text[0..30]  %></td>
+          <td width="377"><%= raw task.title[0..30] %></td>
+          <td width="377"><%= raw task.text  %></td>
           <td width="220"><%= task.time %></td>
           <td width="70"><%= link_to 'Destroy', task , method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
@@ -51,8 +51,8 @@
     <tbody>
       <% @archived_tasks.each do |task| %>
         <tr>
-          <td width="377"><%= task.title[0..30] %></td>
-          <td width="377"><%= task.text[0..30]  %></td>
+          <td width="377"><%= raw task.title[0..30] %></td>
+          <td width="377"><%= raw task.text  %></td>
           <td width="220"><%= task.time %></td>
           <td width="70"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
