@@ -44,7 +44,19 @@ module NewsPacker
       else
         index += 1
       end
+    end
+    taged_news = TagedNews.where(user_id: current_user).where(status:  'ok')
+    taged_news.each do |i|
+      taged_news_weekly_taker(i.tag)
+      req = open(@url)
+      response_body = req.read
+      a = JSON.parse(response_body)
+      b = a.to_a
 
+      @news_labels <<  i.tag + ':'
+      arr_with_news << b[2][1][0]
+      arr_with_news << b[2][1][1]
+      arr_with_news << b[2][1][2]
     end
     return arr_with_news
   end
@@ -90,7 +102,20 @@ module NewsPacker
       else
         index += 1
       end
+    end
 
+    taged_news = TagedNews.where(user_id: current_user).where(status:  'ok')
+    taged_news.each do |i|
+      taged_news_weekly_taker(i.tag)
+      req = open(@url)
+      response_body = req.read
+      a = JSON.parse(response_body)
+      b = a.to_a
+
+      @news_labels <<  i.tag + ':'
+      arr_with_news << b[2][1][0]
+      arr_with_news << b[2][1][1]
+      arr_with_news << b[2][1][2]
     end
     return arr_with_news
   end
@@ -99,14 +124,14 @@ module NewsPacker
     return @news_labels
   end
 
-  def self.news_taker_daily(country , category)
+  def self.news_taker_daily(country , category) #make url with daily news
     @url = 'https://newsapi.org/v2/top-headlines?'\
           "country=#{country}&"\
           "category=#{category}&"\
           "apiKey=#{Rails.application.secrets[:newsapi]}"
   end
 
-  def self.news_taker_weekly(country , category)
+  def self.news_taker_weekly(country , category) #make url with weekly news
     date_now = Date.today
     week_ago = date_now - 7
     date_now_string = date_now.strftime("%Y-%m-%d")
@@ -116,6 +141,34 @@ module NewsPacker
           "from=#{week_ago_string}&"\
           "to=#{date_now_string}&"\
           "language=#{country}&"\
+          "sortBy=popularity&"\
+          "apiKey=#{Rails.application.secrets[:newsapi]}"
+  end
+
+  def self.taged_news_daily_taker(category) #make url with daily news by tag
+    date_now = Date.today
+    week_ago = date_now - 1
+    date_now_string = date_now.strftime("%Y-%m-%d")
+    week_ago_string = week_ago.strftime("%Y-%m-%d")
+    @url = 'https://newsapi.org/v2/everything?'\
+          "q=#{category}&"\
+          "from=#{week_ago_string}&"\
+          "to=#{date_now_string}&"\
+          "language=en&"\
+          "sortBy=popularity&"\
+          "apiKey=#{Rails.application.secrets[:newsapi]}"
+  end
+
+  def self.taged_news_weekly_taker(category) #make url with weekly news by tag
+    date_now = Date.today
+    week_ago = date_now - 7
+    date_now_string = date_now.strftime("%Y-%m-%d")
+    week_ago_string = week_ago.strftime("%Y-%m-%d")
+    @url = 'https://newsapi.org/v2/everything?'\
+          "q=#{category}&"\
+          "from=#{week_ago_string}&"\
+          "to=#{date_now_string}&"\
+          "language=en&"\
           "sortBy=popularity&"\
           "apiKey=#{Rails.application.secrets[:newsapi]}"
   end
@@ -153,25 +206,5 @@ module NewsPacker
     return arr_with_choosed_news
   end
 
-  def self.taged_news_daily_taker(category)
-    @url = 'https://newsapi.org/v2/everything?'\
-          "q=#{category}&"\
-          "language=en&"\
-          "sortBy=popularity&"\
-          "apiKey=#{Rails.application.secrets[:newsapi]}"
-  end
 
-  def self.taged_news_weekly_taker(category)
-    date_now = Date.today
-    week_ago = date_now - 7
-    date_now_string = date_now.strftime("%Y-%m-%d")
-    week_ago_string = week_ago.strftime("%Y-%m-%d")
-    @url = 'https://newsapi.org/v2/everything?'\
-          "q=#{category}&"\
-          "from=#{week_ago_string}&"\
-          "to=#{date_now_string}&"\
-          "language=#{country}&"\
-          "sortBy=popularity&"\
-          "apiKey=#{Rails.application.secrets[:newsapi]}"
-  end
 end
