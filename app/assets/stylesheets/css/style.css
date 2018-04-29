@@ -43,12 +43,12 @@ Table OF Contents
 
 /* -- typography -- */
 
+
 body {
   font-family: 'Varela Round', sans-serif;
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
-  color: #868F9B;
   background-color: #cecece;
 }
 
@@ -1923,6 +1923,8 @@ header {
   font-size: 16px;
   margin-right: 20px;
 }
+
+
 
 
 /*------------------------------------*\

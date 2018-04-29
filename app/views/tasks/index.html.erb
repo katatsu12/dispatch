@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <div align='center' >
@@ -11,23 +12,27 @@
 
   <% if Task.where(user_id: current_user , sended: 0).count > 0%>
   <br>
-  <table border="1" cellpadding="5" width="1044">
+  <table border="1" cellpadding="5" width="1044" style='table-layout:fixed'>
+    <col width=377>
+    <col width=377>
+    <col width=220>
+    <col width=70>
     <thead>
       <tr align="center" >
         <th>Title</th>
         <th>Text</th>
         <th>Time</th>
-        <th colspan="3"></th>
+        <th></th>
       </tr>
     </thead>
 
     <tbody>
       <% @tasks.each do |task| %>
         <tr>
-          <td width="377"><%= raw task.title[0..30] %></td>
-          <td width="377"><%= raw task.text  %></td>
-          <td width="220"><%= task.time %></td>
-          <td width="70"><%= link_to 'Destroy', task , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= raw task.title[0..30] %></td>
+          <td  style="display:block; overflow:auto; overflow-y:hidden; height: 36px;"><%= raw task.text %></td>
+          <td><%= task.time %></td>
+          <td><%= link_to 'Destroy', task , method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -38,23 +43,27 @@
 
   <% if Task.where(user_id: current_user , sended: 1).count > 0%>
   <h1>Archived Tasks</h1>
-  <table border="1" cellpadding="5" width="1044">
+  <table border="1" cellpadding="5" width="1044" style='table-layout:fixed'>
+    <col width=377>
+    <col width=377>
+    <col width=220>
+    <col width=70>
     <thead>
       <tr align="center">
         <th>Title</th>
         <th>Text</th>
         <th>Time</th>
-        <th colspan="3"></th>
+        <th></th>
       </tr>
     </thead>
 
     <tbody>
       <% @archived_tasks.each do |task| %>
         <tr>
-          <td width="377"><%= raw task.title[0..30] %></td>
-          <td width="377"><%= raw task.text  %></td>
-          <td width="220"><%= task.time %></td>
-          <td width="70"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td ><%= raw task.title[0..30] %></td>
+          <td style="display:block; overflow:auto; overflow-y:hidden; height: 36px;"><%= raw task.text %></td>
+          <td ><%= task.time %></td>
+          <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
