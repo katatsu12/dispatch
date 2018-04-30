@@ -233,7 +233,12 @@ module NewsPacker
         index += 1
       end
     end
-
+    TagedNews.where(user_id: current_user).each do |i|
+      if arr_with_choosed_news != "You are subscrivbed to this news: "
+        arr_with_choosed_news << ", "
+      end
+      arr_with_choosed_news << i.tag
+    end
     if arr_with_choosed_news == "You are subscrivbed to this news: "
       arr_with_choosed_news = "You are not subscrivbed to news"
     end

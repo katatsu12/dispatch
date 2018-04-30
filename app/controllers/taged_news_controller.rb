@@ -16,7 +16,11 @@ class TagedNewsController < ApplicationController
 
   # GET /taged_news/new
   def new
-    @taged_news = current_user.taged_news.build
+    if TagedNews.where(user_id: current_user).count >= 5
+      redirect_to news_chooser_path
+    else
+      @taged_news = current_user.taged_news.build
+    end
   end
 
   # GET /taged_news/1/edit

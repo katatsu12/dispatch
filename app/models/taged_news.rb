@@ -11,7 +11,11 @@ class TagedNews < ApplicationRecord
   private
 
   def self.status_check(last_taged_news)
-    last_taged_news_updated = last_taged_news.tag.gsub!(' ', '+')
+    if last_taged_news.tag.include? ' '
+      last_taged_news_updated = last_taged_news.tag.gsub!(' ', '+')
+    else
+      last_taged_news_updated = last_taged_news.tag
+    end
     b = NewsPacker.taged_news_daily_taker(last_taged_news_updated)
     if b[1][1] == 0
       last_taged_news.update(status: 'bad request' , tag: last_taged_news_updated)
