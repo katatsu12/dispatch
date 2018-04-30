@@ -5,7 +5,7 @@ class TagedNewsController < ApplicationController
   # GET /taged_news
   # GET /taged_news.json
   def index
-    @taged_news = TagedNews.all
+    redirect_to news_chooser_path
   end
 
   # GET /taged_news/1
@@ -60,6 +60,7 @@ class TagedNewsController < ApplicationController
       format.html { redirect_to taged_news_index_url, notice: 'Taged news was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
 
   private

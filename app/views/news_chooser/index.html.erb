@@ -197,7 +197,35 @@
       </div>
     </div>
   </div>
+
+  <div class="taged_news" align='center'>
+    <% if @tags.count < 5%>
+      <a href="/taged_news/new" class="btn btn-primary btn-lg">Add tag</a>
+    <% else %>
+      <h3>Sorry , but you can create only 5 tags</h3>
+    <% end %>
+
+    <% if @tags.count > 0%>
+      <table >
+        <tr>
+          <td width="37">Tag</td>
+          <td width="37">Status</td>
+        </tr>
+        <% @tags.each do |tag|%>
+        <tr>
+          <td width="150"><%= raw tag.tag %></td>
+          <td width="150"><%= raw tag.status  %></td>
+          <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <h3>Add tag to get anything you want! </h3>
+    <% end %>
+  </div>
+
   <!-- /Container -->
-  <%= link_to 'Taged News', {:action=>"index", :controller=>"taged_news"} %>
+
 </div>
+
 <!-- /Service -->
