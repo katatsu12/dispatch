@@ -4,6 +4,7 @@ require 'sidekiq/cron/web'
 Rails.application.routes.draw do
 
 
+  resources :taged_news
   devise_for :admin_user
 
   namespace :admin do

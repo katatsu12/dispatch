@@ -1,0 +1,27 @@
+<div class="col-sm-6 col-md-4 col-md-offset-4">
+  <%= form_with(model: taged_news, local: true) do |form| %>
+    <% if taged_news.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(taged_news.errors.count, "error") %> prohibited this taged_news from being saved:</h2>
+
+        <ul>
+        <% taged_news.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :tag %>
+      <%= form.text_field :tag, id: :taged_news_tag %>
+    </div>
+
+    <div class="actions">
+      <br>
+      <%= form.submit "Create tag" , :class => 'btn btn-primary btn-lg' %>
+      <a href="/news_chooser" class="btn btn-primary btn-lg">Back</a>
+    </div>
+  <% end %>
+
+</div>

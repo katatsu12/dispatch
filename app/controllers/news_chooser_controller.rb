@@ -111,6 +111,8 @@ class NewsChooserController < ApplicationController
     @news_labels = %w[us_business us_entertainment us_health
                       us_science us_sports us_technology ua_business
                       ua_entertainment ua_health ua_science ua_sports ua_technology]
+
+    @tags = TagedNews.where(user_id: current_user)
   end
 
   def swap(news_id)

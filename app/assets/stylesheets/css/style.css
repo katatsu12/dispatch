@@ -1924,7 +1924,18 @@ header {
   margin-right: 20px;
 }
 
-
+.taged_news {
+  margin-top: 15px;
+}
+.taged_news a{
+  margin-bottom: 20px;
+}
+.taged_news table{
+  text-align: center;
+}
+.taged_news h3{
+  text-align: center;
+}
 
 
 /*------------------------------------*\

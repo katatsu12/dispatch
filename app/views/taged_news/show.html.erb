@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @taged_news.tag %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @taged_news.status %>
+</p>
+
+<%= link_to 'Edit', edit_taged_news_path(@taged_news) %> |
+<%= link_to 'Back', taged_news_index_path %>
