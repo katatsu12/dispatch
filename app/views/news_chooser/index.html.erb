@@ -213,8 +213,13 @@
         </tr>
         <% @tags.each do |tag|%>
         <tr>
-          <td width="150"><%= raw tag.tag %></td>
-          <td width="150"><%= raw tag.status  %></td>
+          <%  if tag.tag.include? '+' %>
+            <td width="150"><%=  tag.tag.gsub!('+', ' ')  %></td>
+          <% else %>
+            <td width="150"><%=  tag.tag %></td>
+          <% end %>
+          <td width="150"><%=  tag.status  %></td>
+          
           <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <% end %>
