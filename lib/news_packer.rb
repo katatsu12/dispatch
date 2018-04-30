@@ -22,16 +22,14 @@ module NewsPacker
     news_types.each do |i|
       if i == "1"
         # -----------Pack news to array---------------------
-        news_taker_daily(params_arr[index][0] ,params_arr[index][1] ) #take url with news
-        req = open(@url)
-        response_body = req.read
-        a = JSON.parse(response_body)
-        b = a.to_a
+        b = news_taker_daily(params_arr[index][0] ,params_arr[index][1] ) #take array with news
 
         @news_labels <<  params_arr[index][1] + ':'
-        arr_with_news << b[2][1][0]
-        arr_with_news << b[2][1][1]
-        arr_with_news << b[2][1][2]
+
+        [*0..2].each do |x| #pack 3 of them
+          arr_with_news << b[2][1][x]
+        end
+
         #------------Statistic------------------------------
         news_type = Statistic.find(index + 1)
         inc =  news_type.sended_times + 1
@@ -45,21 +43,23 @@ module NewsPacker
         index += 1
       end
     end
-    taged_news = TagedNews.where(user_id: current_user).where(status:  'ok')
+
+    taged_news = TagedNews.where(user_id: current_user , status:  'ok')
     taged_news.each do |i|
-      taged_news_weekly_taker(i.tag)
-      req = open(@url)
-      response_body = req.read
-      a = JSON.parse(response_body)
-      b = a.to_a
+      b = taged_news_weekly_taker(i.tag)
 
       @news_labels <<  i.tag + ':'
-      arr_with_news << b[2][1][0]
-      arr_with_news << b[2][1][1]
-      arr_with_news << b[2][1][2]
+
+      [*0..2].each do |x| #pack 3 of them
+        arr_with_news << b[2][1][x]
+      end
     end
     return arr_with_news
   end
+
+
+
+
 
   def self.news_packer_weekly(current_user) #create array with weekly news
     news_chooser = NewsChooser.where(user_id: current_user).last
@@ -80,16 +80,14 @@ module NewsPacker
     news_types.each do |i|
       if i == "1"
         # -----------Pack news to array---------------------
-        news_taker_weekly(params_arr[index][0] ,params_arr[index][1] ) #take url with news
-        req = open(@url)
-        response_body = req.read
-        a = JSON.parse(response_body)
-        b = a.to_a
+        b = news_taker_weekly(params_arr[index][0] ,params_arr[index][1] ) #take array with news
 
         @news_labels <<  params_arr[index][1] + ':'
-        arr_with_news << b[2][1][0]
-        arr_with_news << b[2][1][1]
-        arr_with_news << b[2][1][2]
+
+        [*0..2].each do |x| #pack 3 of them
+          arr_with_news << b[2][1][x]
+        end
+
         #------------Statistic------------------------------
         news_type = Statistic.find(index + 1)
         inc =  news_type.sended_times + 1
@@ -104,74 +102,110 @@ module NewsPacker
       end
     end
 
-    taged_news = TagedNews.where(user_id: current_user).where(status:  'ok')
+    taged_news = TagedNews.where(user_id: current_user , status:  'ok')
     taged_news.each do |i|
-      taged_news_weekly_taker(i.tag)
-      req = open(@url)
-      response_body = req.read
-      a = JSON.parse(response_body)
-      b = a.to_a
+      b = taged_news_weekly_taker(i.tag)
 
       @news_labels <<  i.tag + ':'
-      arr_with_news << b[2][1][0]
-      arr_with_news << b[2][1][1]
-      arr_with_news << b[2][1][2]
+
+      [*0..2].each do |x|
+        arr_with_news << b[2][1][x]
+      end
     end
     return arr_with_news
   end
+
+
+
 
   def self.get_labels
     return @news_labels
   end
 
-  def self.news_taker_daily(country , category) #make url with daily news
-    @url = 'https://newsapi.org/v2/top-headlines?'\
+
+
+
+  def self.news_taker_daily(country , category) #return array with daily news
+    url = 'https://newsapi.org/v2/top-headlines?'\
           "country=#{country}&"\
           "category=#{category}&"\
           "apiKey=#{Rails.application.secrets[:newsapi]}"
+    req = open(url)
+    response_body = req.read
+    a = JSON.parse(response_body)
+    b = a.to_a
+    return b
   end
+
+
+
 
   def self.news_taker_weekly(country , category) #make url with weekly news
     date_now = Date.today
     week_ago = date_now - 7
     date_now_string = date_now.strftime("%Y-%m-%d")
     week_ago_string = week_ago.strftime("%Y-%m-%d")
-    @url = 'https://newsapi.org/v2/everything?'\
+    url = 'https://newsapi.org/v2/everything?'\
           "q=#{category}&"\
           "from=#{week_ago_string}&"\
           "to=#{date_now_string}&"\
           "language=#{country}&"\
           "sortBy=popularity&"\
           "apiKey=#{Rails.application.secrets[:newsapi]}"
+    req = open(url)
+    response_body = req.read
+    a = JSON.parse(response_body)
+    b = a.to_a
+    return b
   end
+
+
+
 
   def self.taged_news_daily_taker(category) #make url with daily news by tag
     date_now = Date.today
     week_ago = date_now - 1
     date_now_string = date_now.strftime("%Y-%m-%d")
     week_ago_string = week_ago.strftime("%Y-%m-%d")
-    @url = 'https://newsapi.org/v2/everything?'\
+    url = 'https://newsapi.org/v2/everything?'\
           "q=#{category}&"\
           "from=#{week_ago_string}&"\
           "to=#{date_now_string}&"\
           "language=en&"\
           "sortBy=popularity&"\
           "apiKey=#{Rails.application.secrets[:newsapi]}"
+    req = open(url)
+    response_body = req.read
+    a = JSON.parse(response_body)
+    b = a.to_a
+    return b
   end
+
+
+
+
 
   def self.taged_news_weekly_taker(category) #make url with weekly news by tag
     date_now = Date.today
     week_ago = date_now - 7
     date_now_string = date_now.strftime("%Y-%m-%d")
     week_ago_string = week_ago.strftime("%Y-%m-%d")
-    @url = 'https://newsapi.org/v2/everything?'\
+    url = 'https://newsapi.org/v2/everything?'\
           "q=#{category}&"\
           "from=#{week_ago_string}&"\
           "to=#{date_now_string}&"\
           "language=en&"\
           "sortBy=popularity&"\
           "apiKey=#{Rails.application.secrets[:newsapi]}"
+    req = open(url)
+    response_body = req.read
+    a = JSON.parse(response_body)
+    b = a.to_a
+    return b
   end
+
+
+
 
 
   def self.choosed_news(current_user) #main page subscribtion statistic
