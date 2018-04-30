@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   root to: 'notifications#index'
 
+  get '/statistics', to: 'notifications#statistics'
   get '/about', to: 'notifications#about'
 
   # news_choser(sites)----------------------------------------------------------

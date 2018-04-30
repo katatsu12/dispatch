@@ -1944,7 +1944,7 @@ header {
 
 .about-page-main-content {
   text-align: center;
-  margin: 60px;
+  margin: 20px;
 }
 
 .about-page-main-content p {
@@ -2047,4 +2047,19 @@ header {
 
 .active, .dot:hover {
   background-color: #717171;
+}
+
+/*------------------------------------*\
+	Statistic page
+\*------------------------------------*/
+
+.all-users {
+  position: relative;
+  margin-top: 30px;
+}
+
+.link-to-statistic a {
+  font-size: 130%;
+  padding-bottom: 30px;
+  margin-left: 170px;
 }

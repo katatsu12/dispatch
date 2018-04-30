@@ -1,16 +1,16 @@
 <div class="about-page-main-content">
   <h3>News Dispatch:</h3>
   <p>
-    If you subscriptions to our Daily news every day you will get top 3 news from category which you choose on
-    <a href="/news_chooser">News page</a>
-    but in other way you can choose Weekly news and in this case you will get top news in all week in sunday.
-    You can't choose two ways (but you can try:))
+    If you subscribed to our Daily news, every day you will get top 3 news from category which you choosed on
+    <a href="/news_chooser">News page</a>, also you can choose Weekly news and in this case you will get top news in all week in sunday. We also have feature
+    <a href="/taged_news/new">Taged news</a>
+    with which you can choose news more flexible.
   </p>
   <br>
   <h3>Tasks Dispatch:</h3>
   <p>
-    Task tool will help you forget nothing in the future, in <a href="/tasks">Task page</a> you can create a job and choose
-    time in which you want take your job to mail, /// another way you can use this tool for ///
+    Task tool will help you forget nothing in the future, in
+    <a href="/tasks">Task page</a>, simply create any task or sutask. Integrate with your email, create a task and choose time which you want receive in mail.
   </p>
 </div>
 
@@ -28,7 +28,11 @@
   </div>
 
   <div class="mySlides">
-    <%= image_tag("ScrinTatsks.png", :style => "width:100%") %>
+    <%= image_tag("ScreenshotTagNews.png", :style => "width:100%") %>
+  </div>
+
+  <div class="mySlides">
+    <%= image_tag("ScreenshotTask.png", :style => "width:100%") %>
   </div>
 
   <!-- Next and previous buttons -->
@@ -42,85 +46,9 @@
   <span class="dot" onclick="currentSlide(1)"></span>
   <span class="dot" onclick="currentSlide(2)"></span>
   <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
 </div>
 
-
-
-<div class="about-page-main-content">
-  <h3>News statistics:</h3>
-  <div class="statistics-news">
-    <table>
-      <tr>
-        <th>Category of news:</th>
-        <th>Sent mail:</th>
-        <th>Current subscriptions to news:</th>
-      </tr>
-      <tr>
-        <td>Business US</td>
-        <td><%= @us_business.sended_times %></td>
-        <td><%= @us_business.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Entertainment US</td>
-        <td><%= @us_entertainment.sended_times %></td>
-        <td><%= @us_entertainment.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Health US</td>
-        <td><%= @us_health.sended_times %></td>
-        <td><%= @us_health.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Science US</td>
-        <td><%= @us_science.sended_times %></td>
-        <td><%= @us_science.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Sport US</td>
-        <td><%= @us_sports.sended_times %></td>
-        <td><%= @us_sports.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Technology US</td>
-        <td><%= @us_technology.sended_times %></td>
-        <td><%= @us_technology.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Business UA</td>
-        <td><%= @ua_business.sended_times %></td>
-        <td><%= @ua_business.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Entertainment UA</td>
-        <td><%= @ua_entertainment.sended_times %></td>
-        <td><%= @ua_entertainment.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Health UA</td>
-        <td><%= @ua_health.sended_times %></td>
-        <td><%= @ua_health.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Science UA</td>
-        <td><%= @ua_science.sended_times %></td>
-        <td><%= @ua_science.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Sport UA</td>
-        <td><%= @ua_sports.sended_times %></td>
-        <td><%= @ua_sports.current_daily_subs %></td>
-      </tr>
-      <tr>
-        <td>Technology UA</td>
-        <td><%= @ua_technology.sended_times %></td>
-        <td><%= @ua_technology.current_daily_subs %></td>
-      </tr>
-    </table>
-
-    <div class="">
-      <p>Quantity of users which registrated on our application:
-        <%= @users %></p>
-    </div>
-
-  </div>
+<div class="link-to-statistic">
+  <%= link_to 'Our statistics page', '/statistics' %>
 </div>

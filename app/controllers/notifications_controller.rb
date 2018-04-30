@@ -5,8 +5,8 @@ class NotificationsController < ApplicationController
     if Notification.where(user_id: current_user).count > 0
       @notification = Notification.where(user_id: current_user).last
       @mail = "your current emails is #{@notification.email}"
-      @choosed_news = NewsPacker.choosed_news(current_user)# String with choosed news
-      @nearest_tasks = TaskPacker.nearest_tasks(current_user)# AR with 3 nearest Tasks
+      @choosed_news = NewsPacker.choosed_news(current_user) # String with choosed news
+      @nearest_tasks = TaskPacker.nearest_tasks(current_user) # AR with 3 nearest Tasks
     else
       @mail = 'Before using our features write down your email below'
     end
@@ -42,22 +42,24 @@ class NotificationsController < ApplicationController
     end
   end
 
-  def about
-    @users = User.count
-    
-    @us_business = Statistic.find_by(news_type:"us_business")
-    @us_entertainment = Statistic.find_by(news_type:"us_entertainment")
-    @us_health = Statistic.find_by(news_type:"us_health")
-    @us_science = Statistic.find_by(news_type:"us_science" )
-    @us_sports = Statistic.find_by(news_type:"us_sports")
-    @us_technology = Statistic.find_by(news_type:"us_technology")
+  def about; end
 
-    @ua_business = Statistic.find_by(news_type:"ua_business")
-    @ua_entertainment = Statistic.find_by(news_type:"ua_entertainment" )
-    @ua_health = Statistic.find_by(news_type:"ua_health")
-    @ua_science = Statistic.find_by(news_type:"ua_science")
-    @ua_sports = Statistic.find_by(news_type:"ua_sports")
-    @ua_technology = Statistic.find_by(news_type:"ua_technology")
+  def statistics
+    @users = User.count
+
+    @us_business = Statistic.find_by(news_type: 'us_business')
+    @us_entertainment = Statistic.find_by(news_type: 'us_entertainment')
+    @us_health = Statistic.find_by(news_type: 'us_health')
+    @us_science = Statistic.find_by(news_type: 'us_science')
+    @us_sports = Statistic.find_by(news_type: 'us_sports')
+    @us_technology = Statistic.find_by(news_type: 'us_technology')
+
+    @ua_business = Statistic.find_by(news_type: 'ua_business')
+    @ua_entertainment = Statistic.find_by(news_type: 'ua_entertainment')
+    @ua_health = Statistic.find_by(news_type: 'ua_health')
+    @ua_science = Statistic.find_by(news_type: 'ua_science')
+    @ua_sports = Statistic.find_by(news_type: 'ua_sports')
+    @ua_technology = Statistic.find_by(news_type: 'ua_technology')
   end
 
   private

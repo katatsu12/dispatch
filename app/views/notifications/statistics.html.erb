@@ -1,0 +1,80 @@
+<div class="about-page-main-content">
+  <h3>News statistics:</h3>
+  <div class="statistics-news">
+    <table>
+      <tr>
+        <th>Category of news:</th>
+        <th>Sent mail:</th>
+        <th>Current subscriptions to news:</th>
+      </tr>
+      <tr>
+        <td>Business US</td>
+        <td><%= @us_business.sended_times %></td>
+        <td><%= @us_business.current_daily_subs + @us_business.current_weekly_subs %></td>
+      </tr>
+      <tr>
+        <td>Entertainment US</td>
+        <td><%= @us_entertainment.sended_times %></td>
+        <td><%= @us_entertainment.current_daily_subs + @us_entertainment.current_daily_subs %></td>
+      </tr>
+      <tr>
+        <td>Health US</td>
+        <td><%= @us_health.sended_times %></td>
+        <td><%= @us_health.current_daily_subs + @us_health.current_weekly_subs %></td>
+      </tr>
+      <tr>
+        <td>Science US</td>
+        <td><%= @us_science.sended_times %></td>
+        <td><%= @us_science.current_daily_subs + @us_science.current_weekly_subs%></td>
+      </tr>
+      <tr>
+        <td>Sport US</td>
+        <td><%= @us_sports.sended_times %></td>
+        <td><%= @us_sports.current_daily_subs + @us_sports.current_weekly_subs %></td>
+      </tr>
+      <tr>
+        <td>Technology US</td>
+        <td><%= @us_technology.sended_times %></td>
+        <td><%= @us_technology.current_daily_subs + @us_technology.current_weekly_subs %></td>
+      </tr>
+      <tr>
+        <td>Business UA</td>
+        <td><%= @ua_business.sended_times %></td>
+        <td><%= @ua_business.current_daily_subs + @ua_business.current_weekly_subs %></td>
+      </tr>
+      <tr>
+        <td>Entertainment UA</td>
+        <td><%= @ua_entertainment.sended_times %></td>
+        <td><%= @ua_entertainment.current_daily_subs + @ua_entertainment.current_weekly_subs %></td>
+      </tr>
+      <tr>
+        <td>Health UA</td>
+        <td><%= @ua_health.sended_times %></td>
+        <td><%= @ua_health.current_daily_subs + @ua_health.current_weekly_subs %></td>
+      </tr>
+      <tr>
+        <td>Science UA</td>
+        <td><%= @ua_science.sended_times %></td>
+        <td><%= @ua_science.current_daily_subs + @ua_science.current_weekly_subs %></td>
+      </tr>
+      <tr>
+        <td>Sport UA</td>
+        <td><%= @ua_sports.sended_times %></td>
+        <td><%= @ua_sports.current_daily_subs + @ua_sports.current_weekly_subs %></td>
+      </tr>
+      <tr>
+        <td>Technology UA</td>
+        <td><%= @ua_technology.sended_times %></td>
+        <td><%= @ua_technology.current_daily_subs + @ua_technology.current_weekly_subs %></td>
+      </tr>
+    </table>
+
+    <div class="all-users">
+      <h5>Quantity of users which registrated on our application:
+        <%= @users %>
+      </h5>
+    </div>
+
+  </div>
+
+</div>
