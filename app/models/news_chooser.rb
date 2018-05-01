@@ -1,7 +1,7 @@
 class NewsChooser < ApplicationRecord
   belongs_to :user
 
-
+  
 
   def self.news_types_changer(news_id , current_user)
     @news_chooser = NewsChooser.where(user_id: current_user).last

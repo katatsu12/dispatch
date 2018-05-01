@@ -15,7 +15,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<:        *default
-  database:  dispatch_test
+  database:  dispatch-test
+  username:  den
+  password:  '123321123321'
+  host:      localhost
 
 production:
   <<:        *default
