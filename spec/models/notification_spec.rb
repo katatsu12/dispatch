@@ -10,7 +10,7 @@ RSpec.describe Notification, type: :model do
     end
   end
 
-  context 'Notification creation' do
+  context 'Notification creation' do #dadaya
     let!(:user) { User.create(email: 'aome@some.some', password: 'somepass') }
     let!(:id) { User.current = user  }
     let!(:notification) { Notification.create(email: 'aome@some.some', user_id: user.id) }
