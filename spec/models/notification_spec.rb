@@ -5,7 +5,7 @@ RSpec.describe Notification, type: :model do
     let!(:id) { User.current = user  }
     let!(:notification) { Notification.create(email: 'aome@some.some', user_id: user.id) }
     let!(:news_chooser) { NewsChooser.where(user_id: user.id).last }
-    it 'create news' do
+    it 'create news news_chooser string' do
       expect(news_chooser.news_types).to eq('000000000000')
     end
   end
