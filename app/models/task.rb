@@ -5,8 +5,9 @@ class Task < ApplicationRecord
     TaskMailer.delay_until(task.time).index(User.current.id , task.id)
     Task.delay_until(task.time).sended_email(task.id)
   end
-  private
 
+  private
+  
   def self.sended_email(task_id)
     task = Task.find(task_id)
     task.update(:sended => 1)
