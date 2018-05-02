@@ -62,5 +62,22 @@ RSpec.describe NewsPacker do
       arr = NewsPacker.choosed_news(user.id)
       expect(arr).to eq ("You are not subscrivbed to news")
     end
+    it 'news_taker_daily' do
+      arr = NewsPacker.news_taker_daily('ua' , 'business')
+      expect(arr.count).to eq (3)
+    end
+    it 'news_taker_weekly' do
+      arr = NewsPacker.news_taker_weekly('ru' , 'business')
+      expect(arr.count).to eq (3)
+    end
+    #-------------------------------------------------------------------
+    it 'news_taker_daily' do
+      arr = NewsPacker.taged_news_daily_taker('apple')
+      expect(arr.count).to eq (3)
+    end
+    it 'news_taker_weekly' do
+      arr = NewsPacker.taged_news_weekly_taker('apple')
+      expect(arr.count).to eq (3)
+    end
   end
 end
