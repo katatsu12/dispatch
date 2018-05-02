@@ -2,15 +2,6 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
-  def method_name()
-    app = Rpush::Gcm::App.new
-    app.name = 'android_app'
-    app.auth_key = 'AIzaSyBjQUyh-RKXtOLdUQAi1ygH2-spzGZMTX8'
-    app.connections = 1
-    app.save!
-  end
-
-
   # GET /tasks
   # GET /tasks.json
   def index
