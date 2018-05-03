@@ -1,20 +1,20 @@
 require 'rails_helper'
 RSpec.describe NewsChooserController, type: :controller do
-  describe 'get defs' do
+  context 'get defs' do
     let!(:user) { User.create(email: 'example@example.example', password: 'example') }
     let!(:id) { User.current = user  }
     it 'GET index template with created notification' do
       Notification.create(email: 'aome@some.some', user_id: user.id)
       sign_in(user)
       get :index
-      expect(response.status).to eq(200)
+      expect(response).to render_template("index")
     end
-    it 'GET index template without created notification' do
+    it 'GET index template without created notification redirect to root_path' do
       sign_in(user)
       get :index
       expect(response).to redirect_to(root_path)
     end
-    describe 'POST defs' do
+    context 'POST defs' do
       let!(:user) { User.create(email: 'example@example.example', password: 'example') }
       let!(:id) { User.current = user  }
       let!(:notification) { Notification.create(email: 'aome@some.some', user_id: user.id) }
