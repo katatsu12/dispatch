@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ediff/dispatch/spec/lib/news_packer_spec.rb": [
+      "/home/den/Documents/programming/dispatch/spec/lib/news_packer_spec.rb": [
         1,
         1,
         1,
@@ -86,7 +86,7 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/lib/news_packer.rb": [
+      "/home/den/Documents/programming/dispatch/lib/news_packer.rb": [
         1,
         1,
         1,
@@ -337,7 +337,7 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/spec/rails_helper.rb": [
+      "/home/den/Documents/programming/dispatch/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -396,17 +396,17 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/app/models/admin_user.rb": [
+      "/home/den/Documents/programming/dispatch/app/models/admin_user.rb": [
         1,
         1,
         null
       ],
-      "/home/ediff/dispatch/app/models/application_record.rb": [
+      "/home/den/Documents/programming/dispatch/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/home/ediff/dispatch/app/models/user.rb": [
+      "/home/den/Documents/programming/dispatch/app/models/user.rb": [
         1,
         null,
         null,
@@ -495,43 +495,43 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/app/helpers/application_helper.rb": [
+      "/home/den/Documents/programming/dispatch/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/ediff/dispatch/app/helpers/home_helper.rb": [
+      "/home/den/Documents/programming/dispatch/app/helpers/home_helper.rb": [
         1,
         null
       ],
-      "/home/ediff/dispatch/app/helpers/news_helper.rb": [
+      "/home/den/Documents/programming/dispatch/app/helpers/news_helper.rb": [
         1,
         null
       ],
-      "/home/ediff/dispatch/app/helpers/news_chooser_helper.rb": [
+      "/home/den/Documents/programming/dispatch/app/helpers/news_chooser_helper.rb": [
         1,
         null
       ],
-      "/home/ediff/dispatch/app/helpers/notifications_helper.rb": [
+      "/home/den/Documents/programming/dispatch/app/helpers/notifications_helper.rb": [
         1,
         null
       ],
-      "/home/ediff/dispatch/app/helpers/omniauth_callbacks_helper.rb": [
+      "/home/den/Documents/programming/dispatch/app/helpers/omniauth_callbacks_helper.rb": [
         1,
         null
       ],
-      "/home/ediff/dispatch/app/helpers/taged_news_helper.rb": [
+      "/home/den/Documents/programming/dispatch/app/helpers/taged_news_helper.rb": [
         1,
         null
       ],
-      "/home/ediff/dispatch/app/helpers/tasks_helper.rb": [
+      "/home/den/Documents/programming/dispatch/app/helpers/tasks_helper.rb": [
         1,
         null
       ],
-      "/home/ediff/dispatch/app/helpers/users_helper.rb": [
+      "/home/den/Documents/programming/dispatch/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/home/ediff/dispatch/spec/models/news_chooser_spec.rb": [
+      "/home/den/Documents/programming/dispatch/spec/models/news_chooser_spec.rb": [
         1,
         1,
         1,
@@ -580,7 +580,7 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/app/models/news_chooser.rb": [
+      "/home/den/Documents/programming/dispatch/app/models/news_chooser.rb": [
         1,
         1,
         null,
@@ -625,7 +625,7 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/spec/models/notification_spec.rb": [
+      "/home/den/Documents/programming/dispatch/spec/models/notification_spec.rb": [
         1,
         1,
         1,
@@ -663,7 +663,7 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/app/models/notification.rb": [
+      "/home/den/Documents/programming/dispatch/app/models/notification.rb": [
         1,
         1,
         1,
@@ -673,7 +673,7 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/spec/models/taged_news_spec.rb": [
+      "/home/den/Documents/programming/dispatch/spec/models/taged_news_spec.rb": [
         1,
         1,
         1,
@@ -692,7 +692,7 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/app/models/taged_news.rb": [
+      "/home/den/Documents/programming/dispatch/app/models/taged_news.rb": [
         1,
         1,
         1,
@@ -720,7 +720,7 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/spec/models/task_spec.rb": [
+      "/home/den/Documents/programming/dispatch/spec/models/task_spec.rb": [
         1,
         1,
         1,
@@ -745,7 +745,7 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/app/models/task.rb": [
+      "/home/den/Documents/programming/dispatch/app/models/task.rb": [
         1,
         1,
         1,
@@ -762,13 +762,13 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/spec/models/user_spec.rb": [
+      "/home/den/Documents/programming/dispatch/spec/models/user_spec.rb": [
         1,
         1,
         null,
         null
       ],
-      "/home/ediff/dispatch/app/mailers/user_registration_mailer.rb": [
+      "/home/den/Documents/programming/dispatch/app/mailers/user_registration_mailer.rb": [
         1,
         null,
         1,
@@ -777,17 +777,17 @@
         null,
         null
       ],
-      "/home/ediff/dispatch/app/mailers/application_mailer.rb": [
+      "/home/den/Documents/programming/dispatch/app/mailers/application_mailer.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/ediff/dispatch/app/models/statistic.rb": [
+      "/home/den/Documents/programming/dispatch/app/models/statistic.rb": [
         1,
         null
       ],
-      "/home/ediff/dispatch/app/mailers/task_mailer.rb": [
+      "/home/den/Documents/programming/dispatch/app/mailers/task_mailer.rb": [
         1,
         null,
         1,
@@ -798,6 +798,6 @@
         null
       ]
     },
-    "timestamp": 1525273306
+    "timestamp": 1525341358
   }
 }

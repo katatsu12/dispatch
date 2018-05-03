@@ -10,6 +10,10 @@
       </div>
     </div>
 
+    <button type="button" class="btn btn-default" onclick="sendPush()">
+      Send WebPush
+    </button>
+
     <% if Notification.where(user_id: current_user).count > 0 %>
 
       <div class="center">
