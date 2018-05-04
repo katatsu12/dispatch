@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery prepend: true
   $vapid_private = 'oFF8a5yMXqJn-QxZ18TNzs8lncEHd7DmF3oYDtsy1fE='
   $vapid_public = 'BItYVBEOYLfJUByY14yGG2gq60UjZay2-d1kik_-ckAZi_AnsnIkmgXjwPOqQsb5ci8kML4tPxh7H_i--HvEZAo='
-  $google_gcm_key = 'AIzaSyBjQUyh-RKXtOLdUQAi1ygH2-spzGZMTX8'
 
   def current_users
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

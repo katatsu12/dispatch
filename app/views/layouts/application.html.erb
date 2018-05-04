@@ -31,7 +31,7 @@
     <%= stylesheet_link_tag "css/style.css" %>
 
     <%= csrf_meta_tags %>
-    
+
   <link rel="manifest" href="/manifest.json" />
 <meta name="apple-mobile-web-app-capable" content="yes"></head>
 
@@ -65,7 +65,7 @@
             <li><%= link_to 'Tasks manager', tasks_path %></li>
           <% end %>
           <li>
-            <a href="/about">About</a>
+            <a href="/about" onclick="sendPush()">About</a>
           </li>
           <% if user_signed_in? %>
             <li>

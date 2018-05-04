@@ -29,6 +29,6 @@ class ContentController < ApplicationController
   end
 
   def get_message(_name)
-    'Welcome to our application'
+    'Welcome to About page'
   end
 end
