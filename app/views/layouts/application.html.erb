@@ -70,10 +70,10 @@
           </li>
           <% if user_signed_in? %>
             <li>
-              <%= link_to 'Sign Out', '/signout', method: :delete %>
+              <%= link_to "Account", edit_user_registration_path %>
             </li>
             <li>
-              <%= link_to "Account", edit_user_registration_path %>
+              <%= link_to 'Sign Out', '/users/sign_out', method: :delete %>
             </li>
           <% else %>
             <li>
