@@ -17,22 +17,26 @@
     <%= form.text_field :title, id: :task_title %>
   </div>
 
-  <div class="field">
-    <h3>Text</h3>
-    <%= form.cktext_area :text, id: :task_text %>
-  </div>
+
+    <div class="field">
+      <h3>Text</h3>
+      <div class="ckeditor-style">
+        <%= form.cktext_area :text, id: :task_text %>
+      </div>
+    </div>
 
   <div class="field">
     <h3>Time</h3>
     <%= form.datetime_select  :time , id: :task_time %>
   </div>
 
-  <div>
+
+  <div class="button-in-task-form">
     <br>
     <%= form.submit "Create task" , :class => 'btn btn-primary btn-lg'  %>
-  </div>
-<% end %>
-<br>
-<a href="/tasks" class="btn btn-primary btn-lg">Back</a>
 
+<% end %>
+
+      <a href="/tasks" class="btn btn-primary btn-lg">Back</a>
+  </div>
 </div>

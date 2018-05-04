@@ -2063,3 +2063,16 @@ header {
   padding-bottom: 30px;
   margin-left: 170px;
 }
+
+.ckeditor-style {
+  margin-left: -92% !important;
+  margin-right: -90%;
+}
+
+.field h3 {
+  padding-top: 20px;
+}
+
+.button-in-task-form {
+  margin-bottom: 40px;
+}
