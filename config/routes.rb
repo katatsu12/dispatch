@@ -3,18 +3,19 @@ require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
 
+  post "/sendkeys" => "content#getJSON", :as => :getJSON
+  post "/sendNo" => "content#sendPush", :as => :sendPush
 
   resources :taged_news
   devise_for :admin_user
 
   namespace :admin do
-
     resources :users
     resources :news_choosers
     resources :notifications
     resources :tasks
 
-    root to: "users#index"
+    root to: 'users#index'
   end
 
   resources :tasks
@@ -54,7 +55,6 @@ Rails.application.routes.draw do
 
   post '/send_weekly', to: 'news_chooser#send_weekly'
   post '/send_daily', to: 'news_chooser#send_daily'
-
 
   authenticate :admin_user do
     mount Sidekiq::Web => '/sidekiq'

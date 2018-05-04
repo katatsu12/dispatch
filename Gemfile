@@ -25,6 +25,8 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'font-awesome-rails'
+gem 'webpush'
+gem 'serviceworker-rails'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
