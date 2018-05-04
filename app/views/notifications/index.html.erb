@@ -25,11 +25,11 @@
           <a href="/tasks">
             <div class="col-md-6">
               <div class="about">
-                <h3>Tasks</h3>
+                <h3>Tasks:</h3>
                 <% if @nearest_tasks.is_a? String %>
                   <h3><%= @nearest_tasks %></h3>
                 <% else %>
-                <h4>Your upcoming tasks:</h4>
+                <h3>Your upcoming tasks:</h3>
                 <table>
                   <% @nearest_tasks.each do |task|%>
                     <tr>
