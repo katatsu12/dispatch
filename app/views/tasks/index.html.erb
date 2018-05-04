@@ -11,7 +11,7 @@
   <% if Task.where(user_id: current_user , sended: 0).count == 0 && Task.where(user_id: current_user , sended: 1).count == 0%>
     <h3>You haven't create tasks before. You can do it by button below</h3>
   <% end %>
-
+  
   <%= link_to 'New Task', new_task_path , class: "btn btn-primary btn-lg"%>
 
   <% if Task.where(user_id: current_user , sended: 0).count > 0%>
