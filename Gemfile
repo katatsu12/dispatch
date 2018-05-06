@@ -27,6 +27,7 @@ gem 'omniauth-github'
 gem 'font-awesome-rails'
 gem 'webpush'
 gem 'serviceworker-rails'
+gem 'telegram-bot'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
