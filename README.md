@@ -1,5 +1,7 @@
 # README
 
+* Presentation's app: https://docs.google.com/presentation/d/1OzbNfNsSfHcDqbzoQbmx1tdkXjf2enDIdnFjHyHJx90/edit?usp=sharing
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
